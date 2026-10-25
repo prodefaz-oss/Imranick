@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMRANICK — Graphic Designer &amp; Video Editor Portfolio | behance.net/imrankite</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Syne', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FF5500',
+              orangeLight: '#FF7733',
+              orangeDark: '#CC4400',
+              black: '#08080A',
+              surface: '#121216',
+              card: '#18181E',
+              border: '#272730',
+              grey: '#9CA3AF',
+              lightGrey: '#D1D5DB'
+            }
+          }
+        }
+      }
+    };
+  </script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="selection:bg-[#FF5500] selection:text-white">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#FF5500]/15 blur-[130px] animate-glow"></div>
+    <div class="absolute top-1/3 -right-32 w-[28rem] h-[28rem] rounded-full bg-[#FF5500]/10 blur-[150px] animate-glow"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 rounded-full bg-white/5 blur-[140px]"></div>
+  </div>
+
+  <!-- Floating Rounded Pill Navigation (With Uploaded IMRANICK Logo & Sybiosme Utility Pills) -->
+  <header class="fixed top-4 inset-x-0 z-40 px-4 sm:px-6 lg:px-8">
+    <nav class="max-w-6xl mx-auto glass-pill rounded-full px-4 sm:px-6 py-3 flex items-center justify-between shadow-2xl">
+      <!-- Uploaded IMRANICK Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+        <div class="px-3.5 py-2 rounded-full bg-black/80 border border-white/15 group-hover:border-[#FF5500] transition-colors flex items-center">
+          <img src="assets/Imranick-Logo.png" alt="IMRANICK Logo" class="h-3.5 sm:h-4 w-auto object-contain" />
+        </div>
+        <span class="hidden xl:inline-block text-[11px] font-medium text-gray-400">Design &amp; Video Studio</span>
+      </a>
+
+      <!-- Required Navigation Items (Sybiosme Numbered Index Style): Work, Service, Experience, Design, Editing -->
+      <div class="hidden md:flex items-center gap-1 bg-[#08080A]/70 border border-white/10 rounded-full p-1">
+        <a href="#work" data-nav="work" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-white bg-[#FF5500] transition-all flex items-center gap-1.5">
+          <span class="text-[10px] opacity-75 font-mono">01</span><span>Work</span>
+        </a>
+        <a href="#service" data-nav="service" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="text-[10px] text-[#FF5500] font-mono">02</span><span>Service</span>
+        </a>
+        <a href="#experience" data-nav="experience" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="text-[10px] text-[#FF5500] font-mono">03</span><span>Experience</span>
+        </a>
+        <a href="#design" data-nav="design" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="text-[10px] text-[#FF5500] font-mono">04</span><span>Design</span>
+        </a>
+        <a href="#editing" data-nav="editing" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="text-[10px] text-[#FF5500] font-mono">05</span><span>Editing</span>
+        </a>
+        <a href="#processSection" data-nav="process" class="nav-pill px-3.5 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition-all hidden lg:flex items-center gap-1.5">
+          <span class="text-[10px] text-[#FF5500] font-mono">06</span><span>10-Day Process</span>
+        </a>
+      </div>
+
+      <!-- Right Utility Controls: Sybiosme Audio Pill, Behance Link, & Book a Call -->
+      <div class="flex items-center gap-2">
+        <!-- Sybiosme-style Ambient Studio Audio Pill -->
+        <button id="studioAudioToggleBtn" type="button" title="Toggle Studio Ambient Synth" class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-gray-300 transition-all">
+          <span class="flex items-end gap-0.5 h-3">
+            <span id="eqBar1" class="w-0.5 h-1.5 bg-[#FF5500] rounded-full transition-all"></span>
+            <span id="eqBar2" class="w-0.5 h-3 bg-[#FF5500] rounded-full transition-all"></span>
+            <span id="eqBar3" class="w-0.5 h-2 bg-[#FF5500] rounded-full transition-all"></span>
+          </span>
+          <span id="audioStatusText">Audio</span>
+        </button>
+
+        <!-- Direct Behance Portfolio Pill -->
+        <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/5 hover:bg-[#FF5500]/20 border border-white/10 hover:border-[#FF5500]/50 text-xs font-semibold text-white transition-all">
+          <span>Bē</span>
+          <span class="text-gray-300">imrankite</span>
+        </a>
+
+        <button id="navBookCallBtn" type="button" class="btn-orange px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-semibold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span>Book a Call</span>
+        </button>
+
+        <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" class="md:hidden w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:border-[#FF5500] transition-colors">
+          <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu (Rounded Card) -->
+    <div id="mobileMenuPanel" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass-pill rounded-3xl p-4 border border-white/10 shadow-2xl">
+      <div class="grid grid-cols-2 gap-2">
+        <a href="#work" class="mobile-nav-link px-4 py-3 rounded-2xl bg-white/5 hover:bg-[#FF5500] text-sm font-medium text-white transition-colors">01. Work</a>
+        <a href="#service" class="mobile-nav-link px-4 py-3 rounded-2xl bg-white/5 hover:bg-[#FF5500] text-sm font-medium text-white transition-colors">02. Service</a>
+        <a href="#experience" class="mobile-nav-link px-4 py-3 rounded-2xl bg-white/5 hover:bg-[#FF5500] text-sm font-medium text-white transition-colors">03. Experience</a>
+        <a href="#design" class="mobile-nav-link px-4 py-3 rounded-2xl bg-white/5 hover:bg-[#FF5500] text-sm font-medium text-white transition-colors">04. Design</a>
+        <a href="#editing" class="mobile-nav-link px-4 py-3 rounded-2xl bg-white/5 hover:bg-[#FF5500] text-sm font-medium text-white transition-colors">05. Editing &amp; Motion Studio</a>
+        <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-2xl bg-[#FF5500]/20 border border-[#FF5500]/40 text-sm font-semibold text-[#FF7733] transition-colors">Bē Behance Portfolio ↗</a>
+      </div>
+      <div class="mt-3 pt-3 border-t border-white/10 flex gap-2">
+        <button id="mobileExplorePlansBtn" type="button" class="w-full btn-outline-rounded py-2.5 text-xs font-semibold">Explore our plans</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10 pt-28 sm:pt-32 pb-20">
+
+    <!-- HERO SECTION (Enhanced with Sybiosme "Live in 10 days / From $... / 20min – No commitment" & Behance Link) -->
+    <section id="hero" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Column: Hero Copy & Rounded CTAs -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex flex-wrap items-center gap-2.5">
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#18181E] border border-[#FF5500]/40 text-xs sm:text-sm text-gray-200">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-pulse"></span>
+              <span>Your custom brand &amp; video campaign, live in 10 days.</span>
+            </div>
+            <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/5 hover:bg-[#FF5500]/20 border border-white/15 hover:border-[#FF5500] text-xs font-semibold text-white transition-all">
+              <span class="text-[#FF5500] font-bold">Bē</span>
+              <span>behance.net/imrankite ↗</span>
+            </a>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-[4.05rem] leading-[1.06] tracking-tight">
+            Crafting Bold <span class="orange-text-gradient">Visual Identities</span> &amp; High-Retention <span class="underline decoration-[#FF5500] decoration-4 underline-offset-8">Video Edits</span>.
+          </h1>
+
+          <p class="text-gray-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+            Welcome to <span class="text-white font-semibold">IMRANICK</span> (<span class="text-gray-300">@imrankite</span>) — Graphic Designer &amp; Video Editor turning brand concepts and raw footage into scroll-stopping visual systems, vector logos, social kits, and cinematic edits.
+          </p>
+
+          <!-- Sybiosme-Style Price Anchor Pill + Primary Rounded CTA Buttons -->
+          <div class="space-y-4 pt-1">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 text-xs sm:text-sm">
+              <span class="text-gray-400 uppercase tracking-wider text-[11px] font-semibold">Plans From</span>
+              <span class="font-display font-extrabold text-lg text-[#FF5500]" id="heroStartingPrice">$1,250 /month</span>
+              <span class="text-gray-500">•</span>
+              <span class="text-gray-300 text-xs">20min Call – No commitment</span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3.5">
+              <button id="heroBookCallBtn" type="button" class="btn-orange px-7 py-4 text-sm sm:text-base font-bold flex items-center gap-3 group">
+                <span>Book a Call</span>
+                <span class="w-7 h-7 rounded-full bg-black/25 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </button>
+
+              <button id="heroExplorePlansBtn" type="button" class="btn-outline-rounded px-7 py-4 text-sm sm:text-base font-semibold flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-[#FF5500]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
+                </svg>
+                <span>Explore our plans</span>
+              </button>
+
+              <button id="heroPlayReelBtn" type="button" class="px-4 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs sm:text-sm font-medium text-gray-300 flex items-center gap-2 transition-all">
+                <span class="w-6 h-6 rounded-full bg-[#FF5500]/20 text-[#FF5500] flex items-center justify-center">▶</span>
+                <span>Watch 60s Showreel</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Trust Metrics Pills -->
+          <div class="pt-3 grid grid-cols-3 gap-3 sm:gap-4 max-w-lg">
+            <div class="rounded-3xl bg-[#121216] border border-white/10 p-3.5 text-center">
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-white">140<span class="text-[#FF5500]">+</span></div>
+              <div class="text-[11px] sm:text-xs text-gray-400 mt-0.5">Brands &amp; Creators</div>
+            </div>
+            <div class="rounded-3xl bg-[#121216] border border-white/10 p-3.5 text-center">
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-white">10<span class="text-[#FF5500]"> Days</span></div>
+              <div class="text-[11px] sm:text-xs text-gray-400 mt-0.5">Sprint Turnaround</div>
+            </div>
+            <div class="rounded-3xl bg-[#121216] border border-white/10 p-3.5 text-center">
+              <div class="font-display font-extrabold text-xl sm:text-2xl text-white">100<span class="text-[#FF5500]">%</span></div>
+              <div class="text-[11px] sm:text-xs text-gray-400 mt-0.5">File Ownership</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Dual Showreel & Graphic Studio Card -->
+        <div class="lg:col-span-5">
+          <div class="bento-card p-5 sm:p-6 relative overflow-hidden animate-float">
+            <!-- Top Pill Bar -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#FF5500]"></span>
+                <span class="w-3 h-3 rounded-full bg-white/30"></span>
+                <span class="w-3 h-3 rounded-full bg-white/10"></span>
+                <span class="text-xs font-medium text-gray-400 ml-2">IMRANICK STUDIO</span>
+              </div>
+              <div class="flex items-center gap-1 bg-black/50 p-1 rounded-full border border-white/10">
+                <button id="heroModeVideo" type="button" class="px-3 py-1 rounded-full text-xs font-semibold bg-[#FF5500] text-white transition-all">Video Edit</button>
+                <button id="heroModeDesign" type="button" class="px-3 py-1 rounded-full text-xs font-semibold text-gray-400 hover:text-white transition-all">Graphic Design</button>
+              </div>
+            </div>
+
+            <!-- Interactive Canvas Visualizer -->
+            <div class="relative rounded-3xl overflow-hidden bg-[#08080A] border border-white/10 aspect-[4/3] flex flex-col justify-between p-4">
+              <canvas id="heroShowreelCanvas" class="absolute inset-0 w-full h-full"></canvas>
+              
+              <!-- Overlay Top Badges -->
+              <div class="relative z-10 flex items-center justify-between">
+                <span id="heroPreviewBadge" class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-[#FF7733]">
+                  ● REC 00:14:22:09 • 4K 60FPS
+                </span>
+                <button id="heroCanvasToggleBtn" type="button" class="px-3 py-1 rounded-full bg-[#FF5500] text-white text-xs font-semibold shadow-lg">
+                  Pause Preview
+                </button>
+              </div>
+
+              <!-- Center Floating Logo & Title inside Canvas -->
+              <div class="relative z-10 my-auto text-center pointer-events-none px-3 flex flex-col items-center">
+                <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-5 sm:h-6 w-auto object-contain mb-2 opacity-95 drop-shadow" />
+                <p id="heroCanvasTag" class="text-[11px] uppercase tracking-widest text-gray-300 font-semibold">Featured Motion &amp; Brand Reel</p>
+                <h2 id="heroCanvasTitle" class="font-display font-extrabold text-lg sm:text-xl text-white mt-0.5 drop-shadow">
+                  IMRANICK_REEL_2026.PRPROJ
+                </h2>
+              </div>
+
+              <!-- Bottom Interactive Mini Timeline Bar -->
+              <div class="relative z-10 bg-black/75 backdrop-blur-md rounded-2xl p-2.5 border border-white/10">
+                <div class="flex items-center justify-between text-[11px] text-gray-400 mb-1.5">
+                  <span id="heroLayerLabel">Track 01: Color Grade + Speed Ramp</span>
+                  <span id="heroTimecode" class="font-mono text-[#FF5500]">00:08 / 00:30</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden cursor-pointer" id="heroScrubBar">
+                  <div id="heroScrubFill" class="h-full bg-gradient-to-r from-[#FF5500] to-[#FF9955] rounded-full w-1/3 transition-all duration-150"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Floating Software Pills -->
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-white">Pr</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-white">Ae</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-white">Ps</span>
+                <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-white">Ai</span>
+                <span class="px-3 py-1.5 rounded-full bg-[#FF5500]/20 border border-[#FF5500]/40 text-xs font-semibold text-[#FF7733]">DaVinci</span>
+              </div>
+              <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#FF5500] hover:text-[#FF7733] flex items-center gap-1">
+                <span>Behance Portfolio</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SYBIOSME-INSPIRED OVERSIZED LOGO & KINETIC MARQUEE STRIP -->
+    <div class="py-5 border-y border-white/10 bg-[#101014] overflow-hidden select-none">
+      <div class="animate-marquee flex items-center gap-10 text-xs sm:text-sm font-display font-bold tracking-wider uppercase">
+        <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-4 sm:h-5 w-auto opacity-85" />
+        <span class="flex items-center gap-3 text-white"><span class="w-2.5 h-2.5 rounded-full bg-[#FF5500]"></span>BRAND IDENTITY DESIGN</span>
+        <span class="flex items-center gap-3 text-gray-400"><span class="w-2.5 h-2.5 rounded-full bg-white/30"></span>HIGH-RETENTION VIDEO EDITING</span>
+        <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-4 sm:h-5 w-auto opacity-85" />
+        <span class="flex items-center gap-3 text-white"><span class="w-2.5 h-2.5 rounded-full bg-[#FF5500]"></span>MOTION GRAPHICS &amp; VFX</span>
+        <span class="flex items-center gap-3 text-gray-400"><span class="w-2.5 h-2.5 rounded-full bg-white/30"></span>BEHANCE.NET/IMRANKITE</span>
+        <!-- Duplicate for seamless loop -->
+        <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-4 sm:h-5 w-auto opacity-85" />
+        <span class="flex items-center gap-3 text-white"><span class="w-2.5 h-2.5 rounded-full bg-[#FF5500]"></span>BRAND IDENTITY DESIGN</span>
+        <span class="flex items-center gap-3 text-gray-400"><span class="w-2.5 h-2.5 rounded-full bg-white/30"></span>HIGH-RETENTION VIDEO EDITING</span>
+        <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-4 sm:h-5 w-auto opacity-85" />
+        <span class="flex items-center gap-3 text-white"><span class="w-2.5 h-2.5 rounded-full bg-[#FF5500]"></span>MOTION GRAPHICS &amp; VFX</span>
+        <span class="flex items-center gap-3 text-gray-400"><span class="w-2.5 h-2.5 rounded-full bg-white/30"></span>BEHANCE.NET/IMRANKITE</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- FOUNDER AUDIO INTRO SECTION (#audioSection)                               -->
+    <!-- ========================================================================= -->
+    <section id="audioSection" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-2">
+      <div class="bento-card p-6 sm:p-8 border-2 border-[#FF5500]/50 relative overflow-hidden shadow-2xl">
+        <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#FF5500]/20 blur-3xl pointer-events-none"></div>
+        <audio id="imranStudioAudio" src="assets/imran-intro.mp3" preload="auto"></audio>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+          <!-- Left 5 Cols: Founder Voiceover Controls -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="flex items-center gap-2.5">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FF5500]/20 border border-[#FF5500]/40 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-[#FF5500] animate-ping"></span>
+                Studio Audio Intro
+              </span>
+              <span class="text-xs font-mono text-gray-400">Since 2016 • Personal Studio</span>
+            </div>
+
+            <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white leading-tight">
+              Meet <span class="text-[#FF5500]">Imran</span> — Hear the Story Behind IMRANICK Studio
+            </h2>
+
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              <button type="button" id="voicePlayerToggleBtn" class="btn-orange px-6 py-3.5 text-xs sm:text-sm font-bold flex items-center gap-3">
+                <span id="voicePlayIcon" class="w-6 h-6 rounded-full bg-black/25 flex items-center justify-center text-xs">▶</span>
+                <span id="voicePlayLabel">Play Founder Audio</span>
+              </button>
+
+              <button type="button" id="voiceSpeedBtn" class="px-4 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono font-bold text-white transition-all">
+                1.0x
+              </button>
+
+              <button type="button" id="voiceRestartBtn" class="px-4 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-semibold text-gray-300 hover:text-white transition-all">
+                ↺ Replay
+              </button>
+            </div>
+          </div>
+
+          <!-- Right 7 Cols: Interactive Waveform Scrubber & Live Synced Transcript -->
+          <div class="lg:col-span-7 bg-black/60 rounded-3xl p-5 sm:p-6 border border-white/10 space-y-4">
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-3.5 w-auto object-contain" />
+                <span class="text-gray-400 font-medium">• Founder Voice Note</span>
+              </div>
+              <span id="voiceTimecode" class="font-mono text-[#FF7733] font-semibold">00:00 / 00:23</span>
+            </div>
+
+            <!-- Interactive Progress & Animated Waveform Bars -->
+            <div id="voiceScrubContainer" class="relative h-12 rounded-2xl bg-[#121216] border border-white/10 px-3 flex items-center cursor-pointer overflow-hidden group" title="Click anywhere to seek audio">
+              <div id="voiceProgressFill" class="absolute inset-y-0 left-0 bg-gradient-to-r from-[#FF5500]/35 to-[#FF7733]/25 border-r-2 border-[#FF5500] transition-all duration-100" style="width: 0%;"></div>
+              <div id="voiceWaveformBars" class="relative z-10 w-full flex items-center justify-between gap-1 h-7 pointer-events-none">
+                <span class="w-1 rounded-full bg-[#FF5500] h-3"></span>
+                <span class="w-1 rounded-full bg-white/40 h-5"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-6"></span>
+                <span class="w-1 rounded-full bg-white/40 h-4"></span>
+                <span class="w-1 rounded-full bg-[#FF7733] h-7"></span>
+                <span class="w-1 rounded-full bg-white/40 h-3"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-5"></span>
+                <span class="w-1 rounded-full bg-white/40 h-6"></span>
+                <span class="w-1 rounded-full bg-[#FF7733] h-4"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-7"></span>
+                <span class="w-1 rounded-full bg-white/40 h-5"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-3"></span>
+                <span class="w-1 rounded-full bg-white/40 h-6"></span>
+                <span class="w-1 rounded-full bg-[#FF7733] h-7"></span>
+                <span class="w-1 rounded-full bg-white/40 h-4"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-6"></span>
+                <span class="w-1 rounded-full bg-white/40 h-3"></span>
+                <span class="w-1 rounded-full bg-[#FF7733] h-5"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-7"></span>
+                <span class="w-1 rounded-full bg-white/40 h-4"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-5"></span>
+                <span class="w-1 rounded-full bg-white/40 h-6"></span>
+                <span class="w-1 rounded-full bg-[#FF7733] h-3"></span>
+                <span class="w-1 rounded-full bg-[#FF5500] h-5"></span>
+              </div>
+            </div>
+
+            <!-- Synchronized Transcript Lines -->
+            <div id="voiceTranscriptBox" class="text-xs sm:text-sm leading-relaxed space-y-1 text-gray-300 bg-black/40 p-3.5 rounded-2xl border border-white/5">
+              <span data-cue-start="0" data-cue-end="5" class="voice-cue transition-colors text-white font-medium">“Hey, I’m Imran, the founder and creative mind behind Imranick Studio.</span>
+              <span data-cue-start="5" data-cue-end="13.5" class="voice-cue transition-colors">I’ve been working in design since 2016, creating visuals, editing videos, and bringing ideas to life through motion and storytelling.</span>
+              <span data-cue-start="13.5" data-cue-end="19.5" class="voice-cue transition-colors">I keep the studio personal, so when you work with me, you work directly with the person creating your project.</span>
+              <span data-cue-start="19.5" data-cue-end="30" class="voice-cue transition-colors">Have a look around, and let’s make something meaningful together.”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SYBIOSME-INSPIRED "OUR APPROACH" & 10-DAY INTERACTIVE TIMELINE            -->
+    <!-- ========================================================================= -->
+    <section id="processSection" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+      <div class="bento-card p-6 sm:p-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-white/10">
+          <div>
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+              Our Approach • Built for Growth
+            </span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-3 leading-tight">
+              Visuals That Work for You.<br/><span class="text-[#FF5500]">Not the Other Way Around.</span>
+            </h2>
+          </div>
+          <p class="text-gray-400 text-sm sm:text-base max-w-md leading-relaxed">
+            Your custom graphic design system or high-retention video package is delivered in 10 days, with predictable monthly plans or sprint bundles and full file ownership.
+          </p>
+        </div>
+
+        <!-- 4 Numbered Sybiosme-style Value Pillars -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-8 border-b border-white/10">
+          <div class="p-5 rounded-3xl bg-black/40 border border-white/10">
+            <span class="font-display font-extrabold text-2xl text-[#FF5500]">01.</span>
+            <h3 class="font-display font-bold text-lg text-white mt-2">Predictable Plans</h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Design &amp; video editing included. One clear budget with zero surprise setup fees.</p>
+          </div>
+          <div class="p-5 rounded-3xl bg-black/40 border border-white/10">
+            <span class="font-display font-extrabold text-2xl text-[#FF5500]">02.</span>
+            <h3 class="font-display font-bold text-lg text-white mt-2">Continuous Polish</h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Your brand visuals and video retention hooks get sharper every single week.</p>
+          </div>
+          <div class="p-5 rounded-3xl bg-black/40 border border-white/10">
+            <span class="font-display font-extrabold text-2xl text-[#FF5500]">03.</span>
+            <h3 class="font-display font-bold text-lg text-white mt-2">Full Ownership</h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Every PSD, AI, Figma, Premiere &amp; After Effects source project file is 100% yours.</p>
+          </div>
+          <div class="p-5 rounded-3xl bg-[#FF5500]/10 border border-[#FF5500]/40">
+            <span class="font-display font-extrabold text-2xl text-[#FF7733]">04.</span>
+            <h3 class="font-display font-bold text-lg text-white mt-2">Ready in 10 Days</h3>
+            <p class="text-xs text-gray-300 mt-1 leading-relaxed">Fast, structured 3-step creative pipeline from 5-minute brief to final master files.</p>
+          </div>
+        </div>
+
+        <!-- Interactive 10-Day Delivery Strip (Inspired by Sybiosme Calendar Strip) -->
+        <div class="pt-8">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#FF7733]">Interactive 10-Day Sprint Calendar</span>
+              <h3 class="font-display font-bold text-xl text-white mt-0.5">Click Any Milestone Day to Preview Your Sprint Schedule</h3>
+            </div>
+            <div class="px-4 py-1.5 rounded-full bg-[#FF5500]/20 border border-[#FF5500]/40 text-xs font-semibold text-white">
+              Estimated Launch: <span class="text-[#FF7733] font-bold">Wednesday, November 4, 2026</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <button type="button" data-day-step="1" class="day-milestone-btn p-4 rounded-3xl bg-[#FF5500] text-white text-left transition-all">
+              <div class="flex items-center justify-between text-xs opacity-90 font-mono">
+                <span>Mon, Oct 26</span>
+                <span class="px-2 py-0.5 rounded-full bg-black/30 font-bold">Day 1</span>
+              </div>
+              <div class="font-display font-bold text-base mt-2">Step 01 • Brief &amp; Assets</div>
+              <p class="text-[11px] opacity-90 mt-1">5-min questionnaire, brand kit &amp; raw footage upload.</p>
+            </button>
+
+            <button type="button" data-day-step="4" class="day-milestone-btn p-4 rounded-3xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-left transition-all">
+              <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                <span>Thu, Oct 29</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#FF5500]/20 text-[#FF7733] font-bold">Day 4</span>
+              </div>
+              <div class="font-display font-bold text-base mt-2">Step 02 • First Cut &amp; Concept</div>
+              <p class="text-[11px] text-gray-400 mt-1">Review initial brand identity proposals &amp; rough video assembly.</p>
+            </button>
+
+            <button type="button" data-day-step="7" class="day-milestone-btn p-4 rounded-3xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-left transition-all">
+              <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                <span>Sun, Nov 1</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#FF5500]/20 text-[#FF7733] font-bold">Day 7</span>
+              </div>
+              <div class="font-display font-bold text-base mt-2">Step 03 • VFX &amp; Color Polish</div>
+              <p class="text-[11px] text-gray-400 mt-1">Collaborative feedback refinements, DaVinci LUT grade &amp; SFX.</p>
+            </button>
+
+            <button type="button" data-day-step="10" class="day-milestone-btn p-4 rounded-3xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-left transition-all">
+              <div class="flex items-center justify-between text-xs text-gray-400 font-mono">
+                <span>Wed, Nov 4</span>
+                <span class="px-2 py-0.5 rounded-full bg-[#FF5500]/20 text-[#FF7733] font-bold">Day 10</span>
+              </div>
+              <div class="font-display font-bold text-base mt-2">Step 04 • Master Handover</div>
+              <p class="text-[11px] text-gray-400 mt-1">4K 60FPS masters, vector packages &amp; full source file transfer.</p>
+            </button>
+          </div>
+
+          <div id="dayMilestoneReadout" class="mt-4 p-4 rounded-2xl bg-black/60 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span id="dayReadoutTitle" class="text-xs font-bold uppercase tracking-wider text-[#FF5500]">Day 1 — You Share the Essentials</span>
+              <p id="dayReadoutDesc" class="text-xs text-gray-300 mt-0.5">Complete a quick 5-minute creative brief sharing your target audience, visual references, and footage links so we can begin immediately.</p>
+            </div>
+            <a href="#plansSection" class="text-xs font-bold text-[#FF7733] hover:text-white whitespace-nowrap">Configure Your Plan →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 1. WORK SECTION (#work)                    -->
+    <!-- ========================================== -->
+    <section id="work" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+              01 • Selected Work — Made for You, Without Limits
+            </span>
+            <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-[#FF5500] text-white text-xs font-semibold border border-white/10 transition-colors">
+              <span>View All on Behance (behance.net/imrankite)</span>
+              <span>↗</span>
+            </a>
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-3">
+            Best <span class="text-[#FF5500]">Design</span> &amp; <span class="text-[#FF5500]">Video</span> Projects
+          </h2>
+          <p class="text-gray-400 text-sm sm:text-base mt-2 max-w-xl">
+            Curated brand identity systems, vector logo marks, social media banner suites, and high-retention commercial video edits by <span class="text-white font-semibold">IMRANICK</span>.
+          </p>
+        </div>
+
+        <!-- Rounded Filter Pills -->
+        <div class="flex flex-wrap items-center gap-2 bg-[#121216] p-1.5 rounded-full border border-white/10 self-start">
+          <button type="button" data-filter="all" class="work-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-[#FF5500] text-white transition-all">
+            All Work (6)
+          </button>
+          <button type="button" data-filter="design" class="work-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-400 hover:text-white transition-all">
+            Graphic Design (3)
+          </button>
+          <button type="button" data-filter="editing" class="work-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-400 hover:text-white transition-all">
+            Video Editing (3)
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Portfolio Grid -->
+      <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Populated dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 2. DESIGN SECTION (#design)                -->
+    <!-- ========================================== -->
+    <section id="design" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+      <div class="bento-card p-6 sm:p-10 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left: Graphic Design Craft & Interactive Controls -->
+          <div class="lg:col-span-6 space-y-5">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+              02 • Graphic Design Craft
+            </span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white leading-tight">
+              Visual Systems Built to <span class="text-[#FF5500]">Dominate Feeds</span> &amp; Shelves.
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+              From modern vector network logos and corporate identity suites (business cards, bi-fold brochures, presentation folders) to social media banners and 3D typography. Test the live artboard inspector below.
+            </p>
+
+            <!-- Interactive Brand Card Theme Switcher -->
+            <div class="space-y-3 pt-2">
+              <div class="text-xs font-semibold uppercase tracking-wider text-gray-400">Interactive Design Inspector — Choose Brand Vibe:</div>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" data-poster="cyber" class="poster-preset-btn px-4 py-2 rounded-full text-xs font-bold bg-[#FF5500] text-white transition-all">
+                  01. Solar Pulse (Brand Identity)
+                </button>
+                <button type="button" data-poster="minimal" class="poster-preset-btn px-4 py-2 rounded-full text-xs font-bold bg-white/5 text-gray-300 hover:text-white border border-white/10 transition-all">
+                  02. Mono Grid (Editorial Poster)
+                </button>
+                <button type="button" data-poster="energy" class="poster-preset-btn px-4 py-2 rounded-full text-xs font-bold bg-white/5 text-gray-300 hover:text-white border border-white/10 transition-all">
+                  03. Ignis Drink (Packaging)
+                </button>
+              </div>
+            </div>
+
+            <!-- Layer Visibility Pills -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span class="text-xs text-gray-400 mr-1">Toggle Layers:</span>
+              <button type="button" id="toggleGridLayer" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FF5500]/20 text-[#FF7733] border border-[#FF5500]/40">
+                ✓ Golden Grid
+              </button>
+              <button type="button" id="toggleBadgeLayer" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FF5500]/20 text-[#FF7733] border border-[#FF5500]/40">
+                ✓ Vector Stamp
+              </button>
+              <button type="button" id="toggleTextureLayer" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FF5500]/20 text-[#FF7733] border border-[#FF5500]/40">
+                ✓ Halftone Glow
+              </button>
+            </div>
+
+            <!-- Design Deliverables Mini Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3">
+              <div class="rounded-2xl bg-black/50 border border-white/10 p-3">
+                <div class="text-[#FF5500] font-bold text-sm">Brand &amp; Logos</div>
+                <div class="text-xs text-gray-400 mt-0.5">Vector Marks &amp; Kits</div>
+              </div>
+              <div class="rounded-2xl bg-black/50 border border-white/10 p-3">
+                <div class="text-white font-bold text-sm">Social &amp; Print</div>
+                <div class="text-xs text-gray-400 mt-0.5">Banners &amp; Flyers</div>
+              </div>
+              <div class="rounded-2xl bg-black/50 border border-white/10 p-3 col-span-2 sm:col-span-1">
+                <div class="text-gray-200 font-bold text-sm">3D Type &amp; Ads</div>
+                <div class="text-xs text-gray-400 mt-0.5">14.8% Avg CTR Boost</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Interactive Graphic Design Artboard with IMRANICK Logo -->
+          <div class="lg:col-span-6">
+            <div id="designArtboard" class="relative rounded-[2rem] bg-[#08080A] border-2 border-[#FF5500]/50 p-6 sm:p-8 min-h-[380px] flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-500">
+              
+              <!-- Optional Golden Grid Overlay -->
+              <div id="artboardGridOverlay" class="absolute inset-0 pointer-events-none opacity-25" style="background-image: linear-gradient(to right, #FF5500 1px, transparent 1px), linear-gradient(to bottom, #FF5500 1px, transparent 1px); background-size: 44px 44px;"></div>
+
+              <!-- Optional Halftone Glow -->
+              <div id="artboardGlowOverlay" class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-[#FF5500]/35 blur-3xl pointer-events-none transition-all duration-500"></div>
+
+              <!-- Artboard Header -->
+              <div class="relative z-10 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="px-3 py-1 rounded-full bg-[#FF5500] text-white text-[11px] font-extrabold tracking-wider uppercase" id="artboardCategory">BRAND SYSTEM 01</span>
+                  <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-[11px] font-mono" id="artboardDimensions">3000 × 3000 PX • CMYK/RGB</span>
+                </div>
+                <!-- Rotating Vector Stamp -->
+                <div id="artboardStamp" class="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-display font-black text-[9px] text-center leading-tight p-1 shadow-lg animate-spin-slow">
+                  IMRANICK<br/>ORIGINAL
+                </div>
+              </div>
+
+              <!-- Center Artboard Visual -->
+              <div class="relative z-10 my-6">
+                <img src="assets/Imranick-Logo.png" alt="IMRANICK Watermark" class="h-4 w-auto opacity-60 mb-3" />
+                <p id="artboardSubhead" class="text-xs uppercase tracking-[0.25em] text-[#FF7733] font-bold">SOLAR PULSE® VISUAL IDENTITY</p>
+                <h3 id="artboardHeadline" class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2 tracking-tight leading-none">
+                  HIGH VOLTAGE<br/><span class="text-[#FF5500]">TYPOGRAPHY.</span>
+                </h3>
+                <p id="artboardDesc" class="text-xs sm:text-sm text-gray-300 mt-3 max-w-md">
+                  Engineered with rounded geometric shapes, deep carbon blacks, and electric orange focal points for maximum shelf &amp; screen authority.
+                </p>
+              </div>
+
+              <!-- Artboard Swatches Footer -->
+              <div class="relative z-10 flex items-center justify-between pt-4 border-t border-white/15">
+                <div class="flex items-center gap-2">
+                  <span class="w-7 h-7 rounded-full bg-[#FF5500] border border-white/30" title="#FF5500 Orange"></span>
+                  <span class="w-7 h-7 rounded-full bg-[#08080A] border border-white/30" title="#08080A Carbon Black"></span>
+                  <span class="w-7 h-7 rounded-full bg-[#FFFFFF] border border-white/30" title="#FFFFFF Pure White"></span>
+                  <span class="w-7 h-7 rounded-full bg-[#6B7280] border border-white/30" title="#6B7280 Neutral Grey"></span>
+                </div>
+                <button type="button" id="artboardBookDesignBtn" class="btn-orange px-4 py-2 text-xs font-bold">
+                  Request Custom Identity →
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. EDITING SECTION (#editing)              -->
+    <!-- ========================================== -->
+    <section id="editing" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div>
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+            03 • Video Editing &amp; Motion Suite
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-3">
+            Frame-Accurate <span class="text-[#FF5500]">Storytelling</span> &amp; Color Grading
+          </h2>
+          <p class="text-gray-400 text-sm sm:text-base mt-2 max-w-2xl">
+            Every cut, speed ramp, riser, and LUT is crafted to hold viewer attention past the 70% retention mark. Try the interactive Color Grade slider &amp; multi-track timeline below.
+          </p>
+        </div>
+        <button type="button" id="editingBookBtn" class="btn-orange px-6 py-3.5 text-xs sm:text-sm font-bold self-start">
+          Book Video Editing Slot
+        </button>
+      </div>
+
+      <!-- Interactive Video Editing Showcase Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left 7 Cols: Interactive Before/After Color Grading & FX Comparator -->
+        <div class="lg:col-span-7 bento-card p-5 sm:p-7 flex flex-col justify-between">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">Interactive Color Grade &amp; VFX Inspector</h3>
+              <p class="text-xs text-gray-400">Drag the slider to compare flat LOG camera footage vs. final Orange &amp; Carbon cinematic grade</p>
+            </div>
+            <span id="gradePercentBadge" class="px-3 py-1 rounded-full bg-[#FF5500]/20 border border-[#FF5500]/40 text-xs font-mono font-semibold text-[#FF7733]">
+              Grade Mix: 75%
+            </span>
+          </div>
+
+          <!-- Simulated Viewport with Before/After Split -->
+          <div class="relative rounded-3xl overflow-hidden aspect-[16/9] bg-[#141418] border border-white/10 select-none">
+            <!-- RAW LOG Layer (Base) -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#2a2b2e] via-[#383a40] to-[#222326] flex items-center justify-center p-6">
+              <div class="text-center opacity-60">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-gray-200 text-xs font-mono">S-LOG3 RAW • UNGRADED</span>
+                <div class="font-display font-extrabold text-2xl sm:text-4xl text-gray-300 mt-3">FLAT CAMERA FOOTAGE</div>
+                <p class="text-xs text-gray-400 mt-1">Low contrast • Desaturated shadows • Raw sensor output</p>
+              </div>
+            </div>
+
+            <!-- GRADED + VFX Layer (Clipped by Slider) -->
+            <div id="gradedOverlayLayer" class="absolute inset-y-0 left-0 overflow-hidden bg-gradient-to-br from-[#08080A] via-[#1c0d06] to-[#FF5500]/40 border-r-2 border-[#FF5500]" style="width: 75%;">
+              <div class="w-full h-full flex flex-col items-center justify-center p-6 relative">
+                <div class="absolute top-4 left-4 flex items-center gap-2">
+                  <span class="px-3 py-1 rounded-full bg-[#FF5500] text-white text-[11px] font-bold">FINAL MASTER + LUT</span>
+                  <span class="px-2.5 py-1 rounded-full bg-black/60 text-gray-200 text-[11px] font-mono">DaVinci Resolve 19</span>
+                </div>
+                <div class="text-center">
+                  <div class="font-display font-extrabold text-2xl sm:text-4xl text-white drop-shadow-lg">
+                    CINEMATIC <span class="text-[#FF5500]">ORANGE &amp; CARBON</span>
+                  </div>
+                  <p class="text-xs text-gray-200 mt-1">Deep blacks • Glowing skin tones • Kinetic motion tracking</p>
+                </div>
+                <div class="absolute bottom-4 left-4 text-[11px] font-mono text-[#FF7733]">ISO 800 • 24FPS • ANAMORPHIC 2.39:1</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Rounded Range Slider Control -->
+          <div class="mt-4 flex items-center gap-4 bg-black/50 p-3 rounded-full border border-white/10">
+            <span class="text-xs font-semibold text-gray-400 pl-2">RAW LOG</span>
+            <input id="colorGradeSlider" type="range" min="5" max="95" value="75" aria-label="Color Grade Comparison Slider" class="w-full accent-[#FF5500] cursor-pointer h-2 bg-white/10 rounded-full" />
+            <span class="text-xs font-semibold text-[#FF5500] pr-2">FINAL EDIT</span>
+          </div>
+        </div>
+
+        <!-- Right 5 Cols: Multi-Track NLE Timeline Simulator -->
+        <div class="lg:col-span-5 bento-card p-5 sm:p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#FF7733]">Multi-Track Timeline Workflow</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/5 text-gray-300 text-[11px] font-mono">60 FPS LOCKED</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white">Click Any Track to Inspect My Editing Stack</h3>
+            <p class="text-xs text-gray-400 mt-1">See how I layer pacing, motion graphics, and sound design on every client delivery.</p>
+
+            <!-- Interactive NLE Tracks -->
+            <div class="space-y-2.5 mt-5">
+              <button type="button" data-track="v3" class="nle-track-btn w-full text-left p-3 rounded-2xl bg-[#FF5500]/20 border border-[#FF5500] transition-all flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="px-2.5 py-1 rounded-full bg-[#FF5500] text-white text-[11px] font-mono font-bold">V3</span>
+                  <span class="text-xs sm:text-sm font-semibold text-white">3D Captions &amp; Motion Callouts</span>
+                </div>
+                <span class="text-[11px] text-[#FF7733] font-mono">After Effects</span>
+              </button>
+
+              <button type="button" data-track="v2" class="nle-track-btn w-full text-left p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-mono font-bold">V2</span>
+                  <span class="text-xs sm:text-sm font-semibold text-gray-200">B-Roll Speed Ramps &amp; Match Cuts</span>
+                </div>
+                <span class="text-[11px] text-gray-400 font-mono">Premiere Pro</span>
+              </button>
+
+              <button type="button" data-track="v1" class="nle-track-btn w-full text-left p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-mono font-bold">V1</span>
+                  <span class="text-xs sm:text-sm font-semibold text-gray-200">A-Cam Story Cut &amp; Film Halation</span>
+                </div>
+                <span class="text-[11px] text-gray-400 font-mono">DaVinci Resolve</span>
+              </button>
+
+              <button type="button" data-track="a1" class="nle-track-btn w-full text-left p-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-mono font-bold">A1</span>
+                  <span class="text-xs sm:text-sm font-semibold text-gray-200">Spatial SFX, Whooshes &amp; Sub-Bass Mastering</span>
+                </div>
+                <span class="text-[11px] text-gray-400 font-mono">-14 LUFS</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Track Inspector Detail Box -->
+          <div id="nleTrackDetailBox" class="mt-5 p-4 rounded-2xl bg-black/60 border border-white/10">
+            <div class="text-xs font-bold text-[#FF5500] uppercase tracking-wider" id="nleDetailTitle">Track V3 — Kinetic Typography &amp; Motion UI</div>
+            <p class="text-xs text-gray-300 mt-1 leading-relaxed" id="nleDetailDesc">
+              Custom spring-physics animated captions, glowing product HUD callouts, and branded lower thirds that boost viewer retention by 42% in the first 15 seconds.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. SERVICE & SYBIOSME 3-STEP PLAN CONFIGURATOR (#service / #plansSection) -->
+    <!-- ========================================================================= -->
+    <section id="service" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+          04 • Services &amp; Subscription Builder
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-3">
+          What I Do &amp; <span class="text-[#FF5500]">Transparent Plans</span>
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2">
+          Everything you need under one roof — configure your plan in 3 steps (01/03 Plan → 02/03 Add-ons → 03/03 Summary), inspired by modern creative subscriptions.
+        </p>
+      </div>
+
+      <!-- Core Services 4-Pillar Bento Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+        <div class="bento-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/40 flex items-center justify-center text-[#FF5500] font-display font-bold text-lg">01</div>
+            <h3 class="font-display font-bold text-lg text-white mt-4">Brand Identity &amp; Logos</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">Complete visual systems, custom vector wordmarks, stationery kits, and brand guidelines books.</p>
+          </div>
+          <span class="mt-4 inline-block text-xs font-semibold text-[#FF7733]">Illustrator • Figma →</span>
+        </div>
+
+        <div class="bento-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-display font-bold text-lg">02</div>
+            <h3 class="font-display font-bold text-lg text-white mt-4">Short-Form Viral Reels</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">High-retention TikToks, Reels &amp; Shorts with dynamic captions, B-roll cutouts, and sound design.</p>
+          </div>
+          <span class="mt-4 inline-block text-xs font-semibold text-gray-300">Premiere • After Effects →</span>
+        </div>
+
+        <div class="bento-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/40 flex items-center justify-center text-[#FF5500] font-display font-bold text-lg">03</div>
+            <h3 class="font-display font-bold text-lg text-white mt-4">Long-Form YouTube &amp; Ads</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">Documentary-style storytelling, VSL commercials, custom motion explainers, and 4K color grading.</p>
+          </div>
+          <span class="mt-4 inline-block text-xs font-semibold text-[#FF7733]">DaVinci Resolve • Cinema4D →</span>
+        </div>
+
+        <div class="bento-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white font-display font-bold text-lg">04</div>
+            <h3 class="font-display font-bold text-lg text-white mt-4">Thumbnails &amp; Key Art</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">High-CTR YouTube packaging, social media banners, flyers, and 3D editable text effects.</p>
+          </div>
+          <span class="mt-4 inline-block text-xs font-semibold text-gray-300">Photoshop • Blender →</span>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- STEP 01/03: CHOOSE YOUR PLAN (#plansSection)                       -->
+      <!-- ================================================================== -->
+      <div id="plansSection" class="pt-4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 bg-[#121216] p-5 rounded-3xl border border-white/10">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-mono font-bold uppercase">Subscriptions • 01/03</span>
+            <h3 class="font-display font-bold text-2xl text-white mt-1.5">Choose. Your plan.</h3>
+            <p class="text-xs text-gray-400">Switch between monthly creative retainers or single project sprints</p>
+          </div>
+          <!-- Billing Mode Toggle (Rounded Pill) -->
+          <div class="flex items-center gap-1 bg-black p-1.5 rounded-full border border-white/10">
+            <button type="button" id="planModeMonthly" class="px-4 py-2 rounded-full text-xs font-bold bg-[#FF5500] text-white transition-all">
+              Monthly Retainer (Save 20%)
+            </button>
+            <button type="button" id="planModeProject" class="px-4 py-2 rounded-full text-xs font-bold text-gray-400 hover:text-white transition-all">
+              Single Project Bundle
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Rounded Pricing Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Plan 1: Graphic Design Studio -->
+          <div class="bento-card p-7 flex flex-col justify-between" id="planCard1">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-gray-200 text-xs font-semibold">Graphic Design</span>
+                <span class="text-xs text-gray-400">48h Delivery</span>
+              </div>
+              <h4 class="font-display font-extrabold text-2xl text-white mt-4">Brand &amp; Visual Pack</h4>
+              <div class="mt-3 flex items-baseline gap-1">
+                <span id="pricePlan1" class="font-display font-extrabold text-4xl text-white">$1,250</span>
+                <span id="periodPlan1" class="text-xs text-gray-400">/ month</span>
+              </div>
+              <p class="text-xs text-gray-400 mt-2">Ideal for startups &amp; creators needing consistent thumbnails, social graphics, and brand assets.</p>
+              <ul class="space-y-2.5 mt-6 text-xs sm:text-sm text-gray-300">
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Full Logo &amp; Brand Identity Kit</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Up to 15 Social Posters / Thumbnails</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Source Files (PSD, AI, Figma)</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Unlimited Revisions</li>
+              </ul>
+            </div>
+            <button type="button" data-plan="Brand & Visual Pack" data-base-price="1250" class="select-plan-btn btn-outline-rounded w-full py-3.5 mt-8 text-xs sm:text-sm font-bold">
+              Book a Call for Design
+            </button>
+          </div>
+
+          <!-- Plan 2: Pro Video Editing + Design (Highlighted Orange Border) -->
+          <div class="bento-card p-7 flex flex-col justify-between border-2 border-[#FF5500] relative shadow-2xl shadow-[#FF5500]/15" id="planCard2">
+            <div class="absolute -top-3.5 right-6 px-4 py-1 rounded-full bg-[#FF5500] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-lg">
+              Most Popular • All-In-One
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-semibold">Design + Video Editing</span>
+                <span class="text-xs text-gray-300">Priority Queue</span>
+              </div>
+              <h4 class="font-display font-extrabold text-2xl text-white mt-4">Full Creative Partner</h4>
+              <div class="mt-3 flex items-baseline gap-1">
+                <span id="pricePlan2" class="font-display font-extrabold text-4xl text-[#FF5500]">$2,450</span>
+                <span id="periodPlan2" class="text-xs text-gray-400">/ month</span>
+              </div>
+              <p class="text-xs text-gray-300 mt-2">Complete graphic design + high-retention video editing for scaling brands &amp; YouTube channels.</p>
+              <ul class="space-y-2.5 mt-6 text-xs sm:text-sm text-white">
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> 4 Long-Form YouTube / Commercial Edits</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> 12 Viral Short-Form Reels / TikToks</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Custom High-CTR Thumbnails &amp; Motion Graphics</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Custom Color Grading &amp; Mastered Audio</li>
+              </ul>
+            </div>
+            <button type="button" data-plan="Full Creative Partner" data-base-price="2450" class="select-plan-btn btn-orange w-full py-3.5 mt-8 text-xs sm:text-sm font-bold">
+              Book a Call — Start Now
+            </button>
+          </div>
+
+          <!-- Plan 3: Dedicated Video & Motion Production -->
+          <div class="bento-card p-7 flex flex-col justify-between" id="planCard3">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-white/10 text-gray-200 text-xs font-semibold">Video &amp; VFX</span>
+                <span class="text-xs text-gray-400">Dedicated Slack</span>
+              </div>
+              <h4 class="font-display font-extrabold text-2xl text-white mt-4">Motion &amp; Ad Scale</h4>
+              <div class="mt-3 flex items-baseline gap-1">
+                <span id="pricePlan3" class="font-display font-extrabold text-4xl text-white">$3,600</span>
+                <span id="periodPlan3" class="text-xs text-gray-400">/ month</span>
+              </div>
+              <p class="text-xs text-gray-400 mt-2">For agencies and funded brands needing daily ad creatives, 3D motion, and campaign rollouts.</p>
+              <ul class="space-y-2.5 mt-6 text-xs sm:text-sm text-gray-300">
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> 2 active requests at a time (Design + Video)</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Advanced 3D Product Renders &amp; VFX</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Multi-Ratio Ad Variations (9:16, 16:9, 1:1)</li>
+                <li class="flex items-center gap-2"><span class="text-[#FF5500] font-bold">●</span> Weekly Strategy &amp; Retention Audit Calls</li>
+              </ul>
+            </div>
+            <button type="button" data-plan="Motion & Ad Scale" data-base-price="3600" class="select-plan-btn btn-outline-rounded w-full py-3.5 mt-8 text-xs sm:text-sm font-bold">
+              Book a Call for Agency Plan
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- STEP 02/03 & 03/03: SYBIOSME-STYLE ADD-ONS & LIVE SUMMARY BUILDER  -->
+        <!-- ================================================================== -->
+        <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Step 02/03: Make it yours. Your add-ons. -->
+          <div class="lg:col-span-7 bento-card p-6 sm:p-8 space-y-5">
+            <div>
+              <span class="px-3 py-1 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-mono font-bold uppercase">Add-ons • 02/03</span>
+              <h3 class="font-display font-bold text-2xl text-white mt-2">Make it yours. Your add-ons.</h3>
+              <p class="text-xs text-gray-400 mt-1">Customize your monthly creative package or project sprint with optional studio boosters.</p>
+            </div>
+
+            <!-- Base Plan Quick Selector Pills -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span class="text-xs text-gray-400 mr-1">Active Base Plan:</span>
+              <button type="button" data-config-plan="Brand & Visual Pack" data-config-price="1250" class="config-plan-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">Brand &amp; Visual ($1,250)</button>
+              <button type="button" data-config-plan="Full Creative Partner" data-config-price="2450" class="config-plan-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#FF5500] text-white">Full Creative Partner ($2,450)</button>
+              <button type="button" data-config-plan="Motion & Ad Scale" data-config-price="3600" class="config-plan-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">Motion &amp; Ad Scale ($3,600)</button>
+            </div>
+
+            <!-- Add-On 1: Complete Brand Identity & Print Kit -->
+            <div class="p-4 rounded-3xl bg-black/50 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-display font-bold text-base text-white">Brand Identity &amp; Print Stationery Kit</h4>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-bold">+$109 /mo</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1">Logo • Colour palette • Typography • Business Card, Flyer &amp; Presentation Folder templates</p>
+              </div>
+              <button type="button" id="addonBrandToggle" class="px-4 py-2 rounded-full text-xs font-bold bg-white/10 hover:bg-[#FF5500] text-white transition-all whitespace-nowrap">
+                + Add to Plan
+              </button>
+            </div>
+
+            <!-- Add-On 2: Express 24h Thumbnail & Social Banner Pack -->
+            <div class="p-4 rounded-3xl bg-black/50 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-display font-bold text-base text-white">High-CTR Thumbnail &amp; Social Banner Pack</h4>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-bold">+$79 /mo</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1">A/B tested YouTube thumbnails • Vector social banners • 3D editable text effects</p>
+              </div>
+              <button type="button" id="addonThumbToggle" class="px-4 py-2 rounded-full text-xs font-bold bg-white/10 hover:bg-[#FF5500] text-white transition-all whitespace-nowrap">
+                + Add to Plan
+              </button>
+            </div>
+
+            <!-- Add-On 3: Multilingual Video Captions & Adaptation (With Sybiosme +/- Counter) -->
+            <div class="p-4 rounded-3xl bg-black/50 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-display font-bold text-base text-white">Multilingual Video Subtitles &amp; Ad Adapts</h4>
+                  <span class="px-2.5 py-0.5 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-bold">+$39 /mo per language</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1">Your video edits &amp; motion graphics adapted into additional languages without managing separate timelines.</p>
+              </div>
+              <div class="flex items-center gap-2 bg-[#121216] px-3 py-1.5 rounded-full border border-white/10 self-start sm:self-center">
+                <button type="button" id="langMinusBtn" aria-label="Remove a language" class="w-7 h-7 rounded-full bg-white/10 hover:bg-[#FF5500] text-white font-bold text-sm flex items-center justify-center">−</button>
+                <span id="langCountDisplay" class="font-mono font-bold text-sm text-white px-2">0</span>
+                <button type="button" id="langPlusBtn" aria-label="Add a language" class="w-7 h-7 rounded-full bg-white/10 hover:bg-[#FF5500] text-white font-bold text-sm flex items-center justify-center">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03/03: Finalise. Your subscription summary. -->
+          <div class="lg:col-span-5 bento-card p-6 sm:p-8 border-2 border-[#FF5500]/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full bg-[#FF5500] text-white text-xs font-mono font-bold uppercase">Summary • 03/03</span>
+                <span class="text-xs text-gray-400 font-mono">10-Day Guarantee</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white mt-2">Finalise. Your plan.</h3>
+
+              <div class="mt-5 p-4 rounded-3xl bg-black/60 border border-white/10 space-y-2.5 text-xs sm:text-sm">
+                <div class="flex items-center justify-between">
+                  <span class="text-gray-300 font-semibold" id="summaryPlanName">Full Creative Partner</span>
+                  <span class="text-white font-bold font-mono" id="summaryBasePrice">$2,450/mo</span>
+                </div>
+                <div class="flex items-center justify-between text-gray-400">
+                  <span>+ Source Files &amp; Commercial License</span>
+                  <span class="text-[#FF7733] font-semibold">Included</span>
+                </div>
+                <div class="flex items-center justify-between text-gray-400">
+                  <span>+ Dedicated Creative Portal</span>
+                  <span class="text-[#FF7733] font-semibold">Included</span>
+                </div>
+                <div id="summaryAddonsList" class="space-y-1.5 pt-2 border-t border-white/10 text-xs text-gray-300">
+                  <div class="text-gray-500 italic">No optional add-ons selected</div>
+                </div>
+              </div>
+
+              <!-- Promo Code Input (Like Sybiosme) -->
+              <div class="mt-4">
+                <label for="promoCodeInput" class="block text-[11px] text-gray-400 mb-1">Have a promo code? (Try <span class="text-[#FF7733] font-mono">IMRANICK10</span>)</label>
+                <div class="flex gap-2">
+                  <input id="promoCodeInput" type="text" placeholder="Promo code" class="w-full px-4 py-2 rounded-full bg-black/60 border border-white/15 text-xs text-white focus:border-[#FF5500] focus:outline-none uppercase" />
+                  <button type="button" id="applyPromoBtn" class="px-4 py-2 rounded-full bg-white/10 hover:bg-[#FF5500] text-xs font-bold text-white transition-colors">Apply</button>
+                </div>
+                <p id="promoFeedbackMsg" class="text-[11px] text-[#FF7733] mt-1 hidden"></p>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/15">
+              <div class="flex items-baseline justify-between mb-4">
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Estimated Total</span>
+                <div class="text-right">
+                  <span id="summaryTotalDisplay" class="font-display font-extrabold text-3xl sm:text-4xl text-[#FF5500]">$2,450</span>
+                  <span class="text-xs text-gray-400">/month</span>
+                </div>
+              </div>
+
+              <button type="button" id="startConfiguredProjectBtn" class="btn-orange w-full py-4 text-sm font-bold flex items-center justify-center gap-2">
+                <span>Start my project</span>
+                <span>→</span>
+              </button>
+
+              <div class="mt-3 flex flex-wrap items-center justify-center gap-3 text-[11px] text-gray-400">
+                <span>✓ Delivered within 10 days</span>
+                <span>•</span>
+                <span>✓ Cancel or pause anytime</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. EXPERIENCE SECTION (#experience)        -->
+    <!-- ========================================== -->
+    <section id="experience" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left 5 Cols: Experience Summary + Software Mastery -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+            05 • Career Experience
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white leading-tight">
+            6+ Years Directing <span class="text-[#FF5500]">Design</span> &amp; <span class="text-[#FF5500]">Post-Production</span>.
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            As the creative force behind <span class="text-white font-semibold">IMRANICK</span> (<a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="text-[#FF7733] underline">behance.net/imrankite</a>), I’ve crafted brand identities, print stationery templates, social media kits, and high-retention video edits for global clients.
+          </p>
+
+          <!-- Rounded Skill Meters -->
+          <div class="bento-card p-6 space-y-4">
+            <h3 class="font-display font-bold text-base text-white">Core Software &amp; Craft Stack</h3>
+            
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1.5">
+                <span class="text-white">Premiere Pro &amp; After Effects</span>
+                <span class="text-[#FF5500]">98%</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full rounded-full bg-gradient-to-r from-[#FF5500] to-[#FF8844]" style="width: 98%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1.5">
+                <span class="text-white">Photoshop &amp; Illustrator</span>
+                <span class="text-[#FF5500]">96%</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full rounded-full bg-gradient-to-r from-[#FF5500] to-[#FF8844]" style="width: 96%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1.5">
+                <span class="text-white">DaVinci Resolve (Color Grading)</span>
+                <span class="text-[#FF5500]">92%</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full rounded-full bg-gradient-to-r from-[#FF5500] to-[#FF8844]" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1.5">
+                <span class="text-white">Figma &amp; Blender 3D Motion</span>
+                <span class="text-[#FF5500]">88%</span>
+              </div>
+              <div class="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
+                <div class="h-full rounded-full bg-gradient-to-r from-[#FF5500] to-[#FF8844]" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Interactive Experience Timeline Cards -->
+        <div class="lg:col-span-7 space-y-4">
+          
+          <div class="bento-card p-6 relative border-l-4 border-l-[#FF5500]">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-3.5 py-1 rounded-full bg-[#FF5500] text-white text-xs font-bold">2022 — PRESENT</span>
+              <span class="text-xs text-gray-400">Behance • Creative Fabrica • Global</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mt-3">Founder &amp; Lead Creative — IMRANICK Studio (@imrankite)</h3>
+            <p class="text-xs sm:text-sm text-gray-300 mt-1.5 leading-relaxed">
+              Leading graphic design and commercial video editing for global brands and creators. Published popular vector network logos, 3D editable text effects, corporate print kits, and viral motion reels.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Brand Identity</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Commercial Video Editing</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Social Media Kits</span>
+            </div>
+          </div>
+
+          <div class="bento-card p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-3.5 py-1 rounded-full bg-white/10 text-gray-200 text-xs font-bold">2021 — 2023</span>
+              <span class="text-xs text-gray-400">Digital Media &amp; Post-Production</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mt-3">Senior Video Editor &amp; Motion Designer</h3>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1.5 leading-relaxed">
+              Directed post-production workflows for D2C product launch campaigns, cutting high-converting video ads and designing cohesive social media ad kits.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">After Effects VFX</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Color Grading</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Sound Design</span>
+            </div>
+          </div>
+
+          <div class="bento-card p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="px-3.5 py-1 rounded-full bg-white/10 text-gray-200 text-xs font-bold">2019 — 2021</span>
+              <span class="text-xs text-gray-400">Brand &amp; Print Design</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mt-3">Visual &amp; Brand Graphic Designer</h3>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1.5 leading-relaxed">
+              Created brand guidelines, business flyers, presentation folders, bi-fold brochures, and digital campaign assets for lifestyle and tech organizations.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Logo Systems</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Print &amp; Packaging</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 text-gray-300 text-xs">Typography</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SYBIOSME-INSPIRED INTERACTIVE FAQ & DIRECT MESSAGE SECTION (#faqSection)  -->
+    <!-- ========================================================================= -->
+    <section id="faqSection" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left 5 Cols: FAQ Header & "Prefer to email us?" Quick Form -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF5500]/15 border border-[#FF5500]/30 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+              06 • FAQ — Transparent Answers
+            </span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-3 leading-tight">
+              Your Questions.<br/><span class="text-[#FF5500]">Our Answers.</span>
+            </h2>
+            <p class="text-gray-400 text-xs sm:text-sm mt-2">
+              Everything you need to know about how our graphic design and video editing subscriptions, 10-day sprints, and source file ownership work.
+            </p>
+          </div>
+
+          <!-- Sybiosme-style "Prefer to email us?" Card -->
+          <div class="bento-card p-6 space-y-4">
+            <h3 class="font-display font-bold text-lg text-white">Prefer to message directly?</h3>
+            <p class="text-xs text-gray-400">Drop a quick note and I’ll reply within 24 hours with a custom sample reel.</p>
+            <form id="quickMessageForm" class="space-y-3">
+              <input id="quickEmailInput" type="email" required placeholder="Your email *" class="w-full px-4 py-2.5 rounded-full bg-black/60 border border-white/15 text-xs text-white focus:border-[#FF5500] focus:outline-none" />
+              <textarea id="quickMsgInput" rows="2" required placeholder="Tell me about your design or video project *" class="w-full px-4 py-2.5 rounded-3xl bg-black/60 border border-white/15 text-xs text-white focus:border-[#FF5500] focus:outline-none"></textarea>
+              <button type="submit" class="btn-orange w-full py-2.5 text-xs font-bold">Send Message →</button>
+            </form>
+            <p id="quickMsgConfirm" class="text-xs text-[#FF7733] font-semibold hidden">✓ Message received! I’ll get back to you shortly.</p>
+          </div>
+        </div>
+
+        <!-- Right 7 Cols: Interactive FAQ Accordion -->
+        <div class="lg:col-span-7 space-y-3" id="faqAccordionContainer">
+          
+          <div class="bento-card p-5">
+            <button type="button" data-faq="1" class="faq-toggle-btn w-full flex items-center justify-between text-left gap-4">
+              <span class="font-display font-bold text-base text-white">How does the 10-day graphic design &amp; video editing sprint work?</span>
+              <span class="w-8 h-8 rounded-full bg-[#FF5500]/20 text-[#FF5500] flex items-center justify-center font-bold text-sm shrink-0">−</span>
+            </button>
+            <div id="faqBody1" class="mt-3 text-xs sm:text-sm text-gray-300 leading-relaxed">
+              After you select a plan or book a call, you complete a simple 5-minute brief and upload your raw footage or brand references. By Day 4, you review the first design concept or rough video cut. We refine it together on Day 7, and hand over all final 4K masters and vector source files on Day 10.
+            </div>
+          </div>
+
+          <div class="bento-card p-5">
+            <button type="button" data-faq="2" class="faq-toggle-btn w-full flex items-center justify-between text-left gap-4">
+              <span class="font-display font-bold text-base text-white">Who owns the source files (PSD, AI, Figma, Premiere, After Effects)?</span>
+              <span class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-sm shrink-0">+</span>
+            </button>
+            <div id="faqBody2" class="mt-3 text-xs sm:text-sm text-gray-300 leading-relaxed hidden">
+              You own 100% of the work created for your brand. Every deliverable includes clean, organized source files (Adobe Illustrator, Photoshop, Figma, Premiere Pro, and DaVinci Resolve LUTs) plus full commercial licensing.
+            </div>
+          </div>
+
+          <div class="bento-card p-5">
+            <button type="button" data-faq="3" class="faq-toggle-btn w-full flex items-center justify-between text-left gap-4">
+              <span class="font-display font-bold text-base text-white">Can I combine Graphic Design and Video Editing in one monthly plan?</span>
+              <span class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-sm shrink-0">+</span>
+            </button>
+            <div id="faqBody3" class="mt-3 text-xs sm:text-sm text-gray-300 leading-relaxed hidden">
+              Yes! Our most popular <span class="text-white font-semibold">Full Creative Partner</span> plan combines brand design, high-CTR YouTube thumbnails, social media banners, and long/short-form video editing under one flat monthly subscription.
+            </div>
+          </div>
+
+          <div class="bento-card p-5">
+            <button type="button" data-faq="4" class="faq-toggle-btn w-full flex items-center justify-between text-left gap-4">
+              <span class="font-display font-bold text-base text-white">Can I cancel or pause my monthly subscription at any time?</span>
+              <span class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center font-bold text-sm shrink-0">+</span>
+            </button>
+            <div id="faqBody4" class="mt-3 text-xs sm:text-sm text-gray-300 leading-relaxed hidden">
+              Absolutely. There is no long-term lock-in. If you have a quieter month with fewer video or design needs, you can pause or cancel your subscription with one click, effective at the end of your current billing period.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL SYBIOSME-INSPIRED ROUNDED CALL-TO-ACTION BANNER -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+      <div class="rounded-[2.5rem] bg-gradient-to-br from-[#18181E] via-[#121216] to-[#291206] border-2 border-[#FF5500]/50 p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
+        <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#FF5500]/25 blur-3xl pointer-events-none"></div>
+        
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FF5500]/20 border border-[#FF5500]/40 text-[#FF7733] text-xs font-bold uppercase tracking-wider">
+          This is only the end of the page.
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-4 max-w-2xl mx-auto leading-tight">
+          Imagine What Comes Next for <span class="text-[#FF5500]">Your Brand</span>.
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+          Book a 20-minute discovery call (no commitment) to discuss your graphic design or video editing goals, or explore our plans above.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <button type="button" id="footerBookCallBtn" class="btn-orange px-8 py-4 text-sm sm:text-base font-bold flex items-center gap-2.5">
+            <span>Book a Call</span>
+            <span>→</span>
+          </button>
+          <button type="button" id="footerExplorePlansBtn" class="btn-outline-rounded px-8 py-4 text-sm sm:text-base font-semibold">
+            Explore our plans
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (With Uploaded IMRANICK Logo, Behance Link, & Live Clock) -->
+  <footer class="border-t border-white/10 py-10 px-4 sm:px-6 lg:px-8 text-xs text-gray-400">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="px-3.5 py-2 rounded-full bg-white/5 border border-white/10">
+          <img src="assets/Imranick-Logo.png" alt="IMRANICK" class="h-3.5 w-auto object-contain" />
+        </div>
+        <span>© IMRANICK 2026 — Graphic Designer &amp; Video Editor</span>
+        <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-[#FF5500]/20 text-[#FF7733] font-semibold hover:bg-[#FF5500] hover:text-white transition-colors">
+          behance.net/imrankite ↗
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#work" class="hover:text-[#FF5500] transition-colors">Work</a>
+        <a href="#service" class="hover:text-[#FF5500] transition-colors">Service</a>
+        <a href="#experience" class="hover:text-[#FF5500] transition-colors">Experience</a>
+        <a href="#design" class="hover:text-[#FF5500] transition-colors">Design</a>
+        <a href="#editing" class="hover:text-[#FF5500] transition-colors">Editing</a>
+        <span class="text-white/20">|</span>
+        <span id="liveStudioClock" class="font-mono text-gray-300">Studio Time: 15:26:00 (GMT +6)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- INTERACTIVE MODAL 1: "BOOK A CALL" SCHEDULER              -->
+  <!-- ========================================================= -->
+  <div id="bookCallModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="bento-card max-w-lg w-full p-6 sm:p-8 border-2 border-[#FF5500]/60 shadow-2xl relative">
+      <button type="button" id="closeBookModalBtn" aria-label="Close modal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-[#FF5500] text-white flex items-center justify-center transition-colors">
+        ✕
+      </button>
+
+      <div id="bookingFormView">
+        <span class="px-3 py-1 rounded-full bg-[#FF5500]/20 text-[#FF7733] text-xs font-bold uppercase">20-Min Discovery Call – No Commitment</span>
+        <h3 class="font-display font-extrabold text-2xl text-white mt-2">Book a Creative Strategy Call</h3>
+        <p class="text-xs text-gray-400 mt-1">Select your focus area and preferred slot. I’ll send a calendar invite + custom reel link.</p>
+
+        <form id="bookCallForm" class="space-y-4 mt-5">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">What do you need help with?</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" data-service-pick="Graphic Design" class="service-pick-btn py-2 px-3 rounded-full text-xs font-bold bg-[#FF5500] text-white transition-all">Graphic Design</button>
+              <button type="button" data-service-pick="Video Editing" class="service-pick-btn py-2 px-3 rounded-full text-xs font-bold bg-white/5 text-gray-300 border border-white/10 transition-all">Video Editing</button>
+              <button type="button" data-service-pick="Both (Full Plan)" class="service-pick-btn py-2 px-3 rounded-full text-xs font-bold bg-white/5 text-gray-300 border border-white/10 transition-all">Both (Full Plan)</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="clientNameInput" class="block text-xs font-semibold text-gray-300 mb-1">Your Name</label>
+              <input id="clientNameInput" type="text" required placeholder="Alex Rivera" class="w-full px-4 py-2.5 rounded-full bg-black/60 border border-white/15 text-sm text-white focus:border-[#FF5500] focus:outline-none" />
+            </div>
+            <div>
+              <label for="clientEmailInput" class="block text-xs font-semibold text-gray-300 mb-1">Work Email</label>
+              <input id="clientEmailInput" type="email" required placeholder="alex@brand.io" class="w-full px-4 py-2.5 rounded-full bg-black/60 border border-white/15 text-sm text-white focus:border-[#FF5500] focus:outline-none" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="callDateSelect" class="block text-xs font-semibold text-gray-300 mb-1">Preferred Day</label>
+              <select id="callDateSelect" class="w-full px-4 py-2.5 rounded-full bg-black/60 border border-white/15 text-sm text-white focus:border-[#FF5500] focus:outline-none">
+                <option value="Tomorrow — 11:00 AM">Tomorrow — 11:00 AM</option>
+                <option value="Tomorrow — 3:30 PM">Tomorrow — 3:30 PM</option>
+                <option value="Thursday — 1:00 PM">Thursday — 1:00 PM</option>
+                <option value="Friday — 4:00 PM">Friday — 4:00 PM</option>
+              </select>
+            </div>
+            <div>
+              <label for="callPlanInput" class="block text-xs font-semibold text-gray-300 mb-1">Selected Package</label>
+              <input id="callPlanInput" type="text" value="Full Creative Partner" class="w-full px-4 py-2.5 rounded-full bg-black/60 border border-white/15 text-sm text-[#FF7733] font-semibold focus:border-[#FF5500] focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label for="projectNotesInput" class="block text-xs font-semibold text-gray-300 mb-1">Project Brief (Optional)</label>
+            <textarea id="projectNotesInput" rows="2" placeholder="Tell me about your brand identity or video editing goals..." class="w-full px-4 py-2.5 rounded-3xl bg-black/60 border border-white/15 text-sm text-white focus:border-[#FF5500] focus:outline-none"></textarea>
+          </div>
+
+          <button type="submit" class="btn-orange w-full py-3.5 text-sm font-bold">
+            Confirm Call Slot →
+          </button>
+        </form>
+      </div>
+
+      <!-- Confirmation State -->
+      <div id="bookingSuccessView" class="hidden text-center py-6 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-[#FF5500] text-white flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-[#FF5500]/40">
+          ✓
+        </div>
+        <h3 class="font-display font-extrabold text-2xl text-white">Your Call is Locked In!</h3>
+        <p id="bookingSummaryText" class="text-xs sm:text-sm text-gray-300 max-w-sm mx-auto leading-relaxed"></p>
+        <button type="button" id="resetBookingBtn" class="btn-outline-rounded px-6 py-2.5 text-xs font-bold">
+          Done &amp; Return to Portfolio
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- INTERACTIVE MODAL 2: PROJECT CASE STUDY & REEL VIEWER     -->
+  <!-- ========================================================= -->
+  <div id="projectDetailModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="bento-card max-w-2xl w-full p-6 sm:p-8 border-2 border-[#FF5500]/60 shadow-2xl relative">
+      <button type="button" id="closeProjectModalBtn" aria-label="Close project details" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-[#FF5500] text-white flex items-center justify-center transition-colors">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span id="modalProjectTypeBadge" class="px-3 py-1 rounded-full bg-[#FF5500] text-white text-xs font-bold uppercase"></span>
+        <span id="modalProjectDuration" class="px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-mono"></span>
+      </div>
+
+      <h3 id="modalProjectTitle" class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-3"></h3>
+      <p id="modalProjectDesc" class="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed"></p>
+
+      <!-- Visual Preview Box inside Modal -->
+      <div id="modalProjectVisual" class="mt-5 rounded-3xl p-6 border border-white/15 bg-gradient-to-br from-[#18181E] via-black to-[#FF5500]/25 flex flex-col justify-between min-h-[190px]">
+        <div class="flex items-center justify-between text-xs text-gray-400">
+          <span id="modalProjectTools" class="font-mono text-[#FF7733]"></span>
+          <span id="modalProjectMetric" class="px-3 py-1 rounded-full bg-black/60 text-white font-semibold"></span>
+        </div>
+        <div class="my-4 text-center">
+          <div id="modalVisualHeadline" class="font-display font-extrabold text-2xl text-white"></div>
+          <p class="text-xs text-gray-400 mt-1">IMRANICK Master Deliverable • behance.net/imrankite</p>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <a href="https://www.behance.net/imrankite" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#FF7733] hover:text-white underline">
+            View Full Case Study on Behance ↗
+          </a>
+          <button type="button" id="modalBookSimilarBtn" class="btn-orange px-5 py-2 text-xs font-bold">
+            Book Similar Project →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- APPLICATION JAVASCRIPT                                    -->
+  <!-- ========================================================= -->
+    <script src="script.js"></script>
+</body>
+</html>
