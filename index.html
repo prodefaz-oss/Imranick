@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMRANICK — Graphic Designer &amp; Video Editor</title>
+  <meta name="description" content="IMRANICK — Imran, graphic designer and video editor. Brand identities, logos, social kits and high-retention video edits." />
+  <meta name="theme-color" content="#08080A" />
+  <meta property="og:title" content="IMRANICK — Graphic Designer &amp; Video Editor" />
+  <meta property="og:description" content="Bold visual identities and high-retention video edits." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2308080A'/%3E%3Cpath d='M14 14h10M14 14v10M50 14H40M50 14v10M14 50h10M14 50V40M50 50H40M50 50V40' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23FF5500'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pre-corners"><i></i><i></i><i></i><i></i></div>
+    <div class="pre-center">
+      <div class="pre-logo"><img src="assets/Imranick-Logo.png" alt="" /></div>
+      <div class="pre-meta"><span>Rendering portfolio</span><span class="pre-count" id="preCount">000</span></div>
+      <div class="pre-bar"><span id="preBar"></span></div>
+    </div>
+    <div class="pre-tc mono" id="preTc">00:00:00:00</div>
+  </div>
+  <div class="pre-wipe" aria-hidden="true"></div>
+
+  <!-- ============ CURSOR ============ -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cur-frame" id="curFrame"><i></i><i></i><i></i><i></i><span class="cur-size mono" id="curSize"></span></div>
+    <div class="cur-bubble" id="curBubble"><span id="curBubbleText">View</span></div>
+    <div class="cur-dot" id="curDot"></div>
+    <div class="cur-tc mono" id="curTc">00:00:00:00</div>
+  </div>
+
+  <!-- Film grain + viewfinder HUD -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="hud mono" aria-hidden="true">
+    <div class="hud-l"><span class="rec"></span><span>REC</span><span class="hud-sep">/</span><span id="hudScene">Scene 01 — Intro</span></div>
+    <div class="hud-r"><span>TC</span><span id="hudTc">00:00:00:00</span></div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-logo" aria-label="IMRANICK home"><img src="assets/Imranick-Logo.png" alt="IMRANICK" /></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work" data-nav="work"><span class="mono">01</span>Work</a>
+      <a href="#services" data-nav="services"><span class="mono">02</span>Services</a>
+      <a href="#craft" data-nav="craft"><span class="mono">03</span>Craft</a>
+      <a href="#process" data-nav="process"><span class="mono">04</span>Process</a>
+      <a href="#pricing" data-nav="pricing"><span class="mono">05</span>Pricing</a>
+      <a href="#experience" data-nav="experience"><span class="mono">06</span>About</a>
+    </nav>
+    <div class="nav-right">
+      <button class="nav-audio" id="navAudio" type="button" aria-label="Play founder audio intro">
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="nav-audio-label">Audio</span>
+      </button>
+      <button class="btn btn-orange btn-sm magnetic" type="button" data-book>
+        <span class="dot-live"></span><span>Book a call</span>
+      </button>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu-inner">
+      <a href="#work" class="menu-link"><span class="mono">01</span>Work</a>
+      <a href="#services" class="menu-link"><span class="mono">02</span>Services</a>
+      <a href="#craft" class="menu-link"><span class="mono">03</span>Craft</a>
+      <a href="#process" class="menu-link"><span class="mono">04</span>Process</a>
+      <a href="#pricing" class="menu-link"><span class="mono">05</span>Pricing</a>
+      <a href="#experience" class="menu-link"><span class="mono">06</span>About</a>
+      <button class="btn btn-orange menu-cta" type="button" data-book>Book a call →</button>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero" data-scene="Scene 01 — Intro">
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-orb" id="heroOrb" aria-hidden="true"></div>
+
+      <div class="wrap hero-inner">
+        <div class="hero-top">
+          <div class="hero-status" data-intro>
+            <span class="pulse"></span>
+            <span>Available for new projects — 2026</span>
+          </div>
+          <div class="hero-role mono" data-intro>
+            I'm Imran — <span class="scramble" id="roleScramble">Graphic Designer</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title" aria-label="Crafting bold visual identities and high-retention video edits.">
+          <span class="line"><span class="line-in">Crafting bold <span class="chip chip-pen" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6 34 30 24 42 14 30Z" /><circle cx="24" cy="27" r="3.5" /><path d="M24 6v17" /></svg></span></span></span>
+          <span class="line"><span class="line-in">visual identities</span></span>
+          <span class="line"><span class="line-in">&amp; high-retention</span></span>
+          <span class="line"><span class="line-in">video <em class="accent">edits.</em> <span class="chip chip-play" aria-hidden="true"><span class="chip-bars"><i></i><i></i><i></i><i></i><i></i></span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></span></span></span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-desc" data-intro>
+            Welcome to <strong>IMRANICK</strong> — I turn brand concepts and raw footage into scroll-stopping visual systems, vector logos, social kits and cinematic edits.
+          </p>
+          <div class="hero-ctas" data-intro>
+            <button class="btn btn-orange btn-lg magnetic" type="button" data-book>
+              <span>Book a call</span>
+              <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+            </button>
+            <a class="btn btn-ghost btn-lg magnetic" href="#work"><span>See the work</span></a>
+          </div>
+        </div>
+
+        <div class="hero-stats" data-intro>
+          <div class="stat"><b><span data-count="140">0</span><em>+</em></b><span>Brands &amp; creators</span></div>
+          <div class="stat"><b><span data-count="2016" data-start="1990">0</span></b><span>Designing since</span></div>
+          <div class="stat"><b><span data-count="10">0</span><em> days</em></b><span>Sprint turnaround</span></div>
+          <div class="stat"><b><span data-count="100">0</span><em>%</em></b><span>File ownership</span></div>
+        </div>
+      </div>
+
+      <button class="badge magnetic" type="button" data-book aria-label="Book a call">
+        <svg viewBox="0 0 200 200" class="badge-text" aria-hidden="true">
+          <defs><path id="circlePath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+          <text><textPath href="#circlePath">AVAILABLE FOR WORK ✦ BOOK A 20-MIN CALL ✦ NO COMMITMENT ✦ </textPath></text>
+        </svg>
+        <span class="badge-core"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+      </button>
+
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-label="Services">
+      <div class="mq-row" data-mq="1">
+        <div class="mq-track">
+          <span>Brand Identity</span><b>✦</b><span>Video Editing</span><b>✦</b><span>Motion Graphics</span><b>✦</b><span>Thumbnails</span><b>✦</b><span>Social Kits</span><b>✦</b><span>Color Grading</span><b>✦</b>
+        </div>
+      </div>
+      <div class="mq-row mq-outline" data-mq="-1">
+        <div class="mq-track">
+          <span>Logos</span><b>✦</b><span>Reels &amp; Shorts</span><b>✦</b><span>YouTube Edits</span><b>✦</b><span>Print Design</span><b>✦</b><span>Sound Design</span><b>✦</b><span>3D Type</span><b>✦</b>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT / AUDIO ============ -->
+    <section class="about" id="about" data-scene="Scene 02 — Meet Imran">
+      <div class="wrap">
+        <div class="eyebrow" data-reveal><span class="mono">00</span> Meet Imran</div>
+        <p class="fill-text" id="fillText">Hey, I'm Imran — the founder and creative mind behind IMRANICK. I've been working in design since 2016, creating visuals, editing videos and bringing ideas to life through motion and storytelling. I keep the studio personal, so when you work with me, you work directly with the person creating your project.</p>
+
+        <div class="voice" data-reveal>
+          <audio id="voiceAudio" src="assets/imran-intro.mp3" preload="metadata"></audio>
+          <div class="voice-left">
+            <button class="voice-play magnetic" id="voicePlay" type="button" aria-label="Play founder audio">
+              <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+              <svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
+            </button>
+            <div>
+              <div class="voice-title">Hear it from me</div>
+              <div class="voice-sub mono"><span id="voiceTime">00:00</span> / <span id="voiceDur">00:23</span><span class="vs-extra"> · Founder voice note</span></div>
+            </div>
+          </div>
+          <div class="voice-wave" id="voiceWave" data-cursor="view" data-cursor-text="Seek">
+            <canvas id="voiceCanvas"></canvas>
+          </div>
+          <div class="voice-tools">
+            <button class="chip-btn mono" id="voiceSpeed" type="button">1.0×</button>
+            <button class="chip-btn" id="voiceRestart" type="button" aria-label="Replay">↺</button>
+          </div>
+          <div class="voice-transcript" id="voiceTranscript">
+            <span data-start="0" data-end="5">“Hey, I’m Imran, the founder and creative mind behind Imranick Studio.</span>
+            <span data-start="5" data-end="13.5">I’ve been working in design since 2016, creating visuals, editing videos, and bringing ideas to life through motion and storytelling.</span>
+            <span data-start="13.5" data-end="19.5">I keep the studio personal, so when you work with me, you work directly with the person creating your project.</span>
+            <span data-start="19.5" data-end="22.9">Have a look around, and let’s make something meaningful together.”</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="work" id="work" data-scene="Scene 03 — Selected Work">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow" data-reveal><span class="mono">01</span> Selected work</div>
+            <h2 class="sec-title" data-reveal>Design &amp; video,<br /><span class="muted">made to be remembered.</span></h2>
+          </div>
+          <div class="filters" id="filters" role="tablist" aria-label="Filter work" data-reveal>
+            <span class="filter-pill" id="filterPill"></span>
+            <button class="filter is-active" type="button" data-filter="all" role="tab">All <sup id="countAll">0</sup></button>
+            <button class="filter" type="button" data-filter="design" role="tab">Design <sup id="countDesign">0</sup></button>
+            <button class="filter" type="button" data-filter="video" role="tab">Video <sup id="countVideo">0</sup></button>
+          </div>
+        </div>
+        <div class="work-grid" id="workGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services" data-scene="Scene 04 — Services">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow" data-reveal><span class="mono">02</span> What I do</div>
+            <h2 class="sec-title" data-reveal>Everything your brand<br /><span class="muted">needs, under one roof.</span></h2>
+          </div>
+          <p class="sec-desc" data-reveal>From the first vector mark to the final colour-graded master — one person, one vision, zero hand-offs.</p>
+        </div>
+
+        <ul class="svc-list" id="svcList">
+          <li class="svc" data-svc="0" data-service="Graphic Design" data-cursor="view" data-cursor-text="Book">
+            <span class="svc-num mono">01</span>
+            <h3 class="svc-title">Brand Identity &amp; Logos</h3>
+            <p class="svc-desc">Complete visual systems, custom vector wordmarks, stationery kits and brand guideline books.</p>
+            <span class="svc-tools mono">Illustrator · Figma</span>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+          </li>
+          <li class="svc" data-svc="1" data-service="Video Editing" data-cursor="view" data-cursor-text="Book">
+            <span class="svc-num mono">02</span>
+            <h3 class="svc-title">Short-Form Viral Reels</h3>
+            <p class="svc-desc">High-retention TikToks, Reels &amp; Shorts with dynamic captions, B-roll cutouts and sound design.</p>
+            <span class="svc-tools mono">Premiere · After Effects</span>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+          </li>
+          <li class="svc" data-svc="2" data-service="Video Editing" data-cursor="view" data-cursor-text="Book">
+            <span class="svc-num mono">03</span>
+            <h3 class="svc-title">Long-Form YouTube &amp; Ads</h3>
+            <p class="svc-desc">Documentary-style storytelling, VSL commercials, custom motion explainers and 4K colour grading.</p>
+            <span class="svc-tools mono">DaVinci Resolve · Cinema 4D</span>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+          </li>
+          <li class="svc" data-svc="3" data-service="Graphic Design" data-cursor="view" data-cursor-text="Book">
+            <span class="svc-num mono">04</span>
+            <h3 class="svc-title">Thumbnails &amp; Key Art</h3>
+            <p class="svc-desc">High-CTR YouTube packaging, social media banners, flyers and 3D editable text effects.</p>
+            <span class="svc-tools mono">Photoshop · Blender</span>
+            <span class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+          </li>
+        </ul>
+      </div>
+      <div class="svc-float" id="svcFloat" aria-hidden="true"><div class="svc-float-in" id="svcFloatIn"></div></div>
+    </section>
+
+    <!-- ============ CRAFT: DESIGN LAB + GRADE ============ -->
+    <section class="craft" id="craft" data-scene="Scene 05 — The Craft">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow" data-reveal><span class="mono">03</span> The craft</div>
+            <h2 class="sec-title" data-reveal>Play with it.<br /><span class="muted">This is how I work.</span></h2>
+          </div>
+          <p class="sec-desc" data-reveal>Two tiny tools from my desk — switch a brand vibe on the artboard, or drag the grade from flat LOG footage to the final look.</p>
+        </div>
+
+        <div class="craft-grid">
+          <!-- Design lab -->
+          <div class="panel lab" id="design" data-reveal>
+            <div class="panel-head">
+              <span class="tag mono">Design lab</span>
+              <span class="mono dim" id="labDims">3000 × 3000 PX · CMYK/RGB</span>
+            </div>
+            <div class="lab-stage" id="labStage">
+              <div class="ruler ruler-x" aria-hidden="true"></div>
+              <div class="ruler ruler-y" aria-hidden="true"></div>
+              <div class="artboard theme-cyber" id="artboard">
+                <div class="ab-grid" id="abGrid"></div>
+                <div class="ab-glow" id="abGlow"></div>
+                <div class="ab-top">
+                  <span class="ab-cat mono" id="abCat">BRAND SYSTEM 01</span>
+                  <div class="ab-stamp" id="abStamp"><svg viewBox="0 0 100 100"><defs><path id="stampPath" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" /></defs><text><textPath href="#stampPath">IMRANICK ✦ ORIGINAL ✦ 2026 ✦ </textPath></text></svg><span>✦</span></div>
+                </div>
+                <div class="ab-body">
+                  <img src="assets/Imranick-Logo.png" alt="" class="ab-logo" />
+                  <p class="ab-sub mono" id="abSub">SOLAR PULSE® VISUAL IDENTITY</p>
+                  <h3 class="ab-head" id="abHead">HIGH VOLTAGE<br /><em>TYPOGRAPHY.</em></h3>
+                  <p class="ab-desc" id="abDesc">Rounded geometric shapes, deep carbon blacks and electric orange focal points for maximum shelf &amp; screen authority.</p>
+                </div>
+                <div class="ab-foot">
+                  <span class="sw" style="--c:#FF5500"></span><span class="sw" style="--c:#08080A"></span><span class="sw" style="--c:#FFFFFF"></span><span class="sw" style="--c:#6B7280"></span>
+                </div>
+              </div>
+            </div>
+            <div class="lab-controls">
+              <div class="seg" id="labPresets">
+                <button type="button" class="seg-btn is-active" data-preset="cyber">Solar Pulse</button>
+                <button type="button" class="seg-btn" data-preset="minimal">Mono Grid</button>
+                <button type="button" class="seg-btn" data-preset="energy">Ignis</button>
+              </div>
+              <div class="toggles">
+                <button type="button" class="tog is-on" data-layer="abGrid">Grid</button>
+                <button type="button" class="tog is-on" data-layer="abStamp">Stamp</button>
+                <button type="button" class="tog is-on" data-layer="abGlow">Glow</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grade slider -->
+          <div class="panel grade" id="editing" data-reveal>
+            <div class="panel-head">
+              <span class="tag mono">Colour grade</span>
+              <span class="mono dim">Mix <b id="gradeVal">60</b>%</span>
+            </div>
+            <div class="grade-view" id="gradeView" data-cursor="view" data-cursor-text="Drag">
+              <div class="grade-layer grade-log" id="gradeLog"></div>
+              <div class="grade-layer grade-final" id="gradeFinal"></div>
+              <span class="grade-label gl-l mono">S-LOG3 · RAW</span>
+              <span class="grade-label gl-r mono">FINAL · LUT</span>
+              <div class="grade-handle" id="gradeHandle"><span><svg viewBox="0 0 24 24"><path d="m9 6-6 6 6 6M15 6l6 6-6 6" /></svg></span></div>
+              <div class="grade-hud mono"><span>ISO 800</span><span>24 FPS</span><span>2.39:1</span></div>
+            </div>
+            <p class="panel-foot">Deep blacks, glowing skin tones and a warm orange &amp; carbon look — built in DaVinci Resolve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE (scroll-scrubbed) ============ -->
+    <section class="tl-section" id="timeline" data-scene="Scene 06 — The Edit">
+      <div class="tl-sticky">
+        <div class="wrap">
+          <div class="sec-head tl-head">
+            <div>
+              <div class="eyebrow"><span class="mono">03b</span> The edit, frame by frame</div>
+              <h2 class="sec-title">Scroll to <span class="accent">scrub</span> my timeline.</h2>
+            </div>
+            <div class="tl-tc mono"><span id="tlTc">00:00:00:00</span><small>/ 00:00:30:00 · 60 FPS</small></div>
+          </div>
+
+          <div class="tl-body">
+            <div class="tl-monitor" id="tlMonitor">
+              <div class="tl-frame" id="tlFrame"></div>
+              <div class="tl-caption" id="tlCaption"><span>Hook</span></div>
+              <div class="tl-safe" aria-hidden="true"></div>
+              <span class="tl-mon-label mono">PROGRAM · IMRANICK_REEL_2026</span>
+            </div>
+            <div class="tl-info">
+              <div class="tl-track-title mono" id="tlTrackTitle">Track V3 — Kinetic Typography &amp; Motion UI</div>
+              <p id="tlTrackDesc">Custom spring-physics animated captions, glowing product HUD callouts and branded lower thirds that keep viewers past the first 15 seconds.</p>
+              <div class="tl-tools" id="tlTools">
+                <button type="button" class="tl-pick is-active" data-track="v3">V3</button>
+                <button type="button" class="tl-pick" data-track="v2">V2</button>
+                <button type="button" class="tl-pick" data-track="v1">V1</button>
+                <button type="button" class="tl-pick" data-track="a1">A1</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl" id="tl">
+            <div class="tl-ruler mono" id="tlRuler"></div>
+            <div class="tl-row" data-track="v3"><span class="tl-name mono">V3</span><div class="tl-lane" id="laneV3"></div></div>
+            <div class="tl-row" data-track="v2"><span class="tl-name mono">V2</span><div class="tl-lane" id="laneV2"></div></div>
+            <div class="tl-row" data-track="v1"><span class="tl-name mono">V1</span><div class="tl-lane" id="laneV1"></div></div>
+            <div class="tl-row" data-track="a1"><span class="tl-name mono">A1</span><div class="tl-lane" id="laneA1"></div></div>
+            <div class="tl-playhead" id="tlPlayhead"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process" id="process" data-scene="Scene 07 — Process">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow" data-reveal><span class="mono">04</span> 10-day sprint</div>
+            <h2 class="sec-title" data-reveal>Visuals that work for you.<br /><span class="muted">Not the other way around.</span></h2>
+          </div>
+          <p class="sec-desc" data-reveal>Your custom design system or video package, delivered in 10 days — with predictable plans and full file ownership.</p>
+        </div>
+
+        <div class="steps" id="steps">
+          <div class="steps-line"><span id="stepsFill"></span></div>
+          <article class="step" data-reveal>
+            <div class="step-day mono">Day 01</div>
+            <div class="step-dot"></div>
+            <h3>Brief &amp; assets</h3>
+            <p>A simple 5-minute questionnaire: your goals, audience, references and raw footage or design assets.</p>
+          </article>
+          <article class="step" data-reveal>
+            <div class="step-day mono">Day 04</div>
+            <div class="step-dot"></div>
+            <h3>First cut &amp; concept</h3>
+            <p>A polished first identity concept or rough narrative cut — so your feedback is easy and tangible.</p>
+          </article>
+          <article class="step" data-reveal>
+            <div class="step-day mono">Day 07</div>
+            <div class="step-dot"></div>
+            <h3>Polish &amp; revisions</h3>
+            <p>Custom LUTs, kinetic typography, sound design and fine-tuning of every last detail.</p>
+          </article>
+          <article class="step" data-reveal>
+            <div class="step-day mono">Day 10</div>
+            <div class="step-dot"></div>
+            <h3>Master handover</h3>
+            <p>4K masters and print/digital source files (AI, PSD, Figma, PRPROJ) — 100% yours.</p>
+          </article>
+        </div>
+
+        <div class="promises">
+          <div class="promise" data-reveal><span class="mono">01</span><h4>Predictable plans</h4><p>Design &amp; video in one clear budget. No surprise fees.</p></div>
+          <div class="promise" data-reveal><span class="mono">02</span><h4>Continuous polish</h4><p>Your visuals and hooks get sharper every week.</p></div>
+          <div class="promise" data-reveal><span class="mono">03</span><h4>Full ownership</h4><p>Every PSD, AI, Figma, Premiere &amp; AE file is yours.</p></div>
+          <div class="promise is-hot" data-reveal><span class="mono">04</span><h4>Ready in 10 days</h4><p>A structured pipeline from brief to final masters.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="pricing" id="pricing" data-scene="Scene 08 — Pricing">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <div class="eyebrow" data-reveal><span class="mono">05</span> Plans</div>
+            <h2 class="sec-title" data-reveal>Transparent plans.<br /><span class="muted">Pause or cancel anytime.</span></h2>
+          </div>
+          <div class="seg seg-lg" id="billing" data-reveal>
+            <span class="seg-pill" id="billingPill"></span>
+            <button type="button" class="seg-btn is-active" data-mode="monthly">Monthly <small>save 20%</small></button>
+            <button type="button" class="seg-btn" data-mode="project">Single project</button>
+          </div>
+        </div>
+
+        <div class="plans">
+          <article class="plan" data-reveal>
+            <div class="plan-top"><span class="tag">Graphic design</span><span class="dim mono">48h delivery</span></div>
+            <h3>Brand &amp; Visual Pack</h3>
+            <div class="price"><span class="cur">$</span><span class="amt" data-monthly="1250" data-project="650">1,250</span><span class="per" data-monthly="/ month" data-project="/ project sprint">/ month</span></div>
+            <p class="plan-desc">For startups &amp; creators who need consistent thumbnails, social graphics and brand assets.</p>
+            <ul>
+              <li>Full logo &amp; brand identity kit</li>
+              <li>Up to 15 social posters / thumbnails</li>
+              <li>Source files (PSD, AI, Figma)</li>
+              <li>Unlimited revisions</li>
+            </ul>
+            <button class="btn btn-ghost btn-block" type="button" data-plan="Brand & Visual Pack" data-service="Graphic Design">Book a call for design</button>
+          </article>
+
+          <article class="plan plan-hot" data-reveal>
+            <span class="plan-ribbon mono">Most popular</span>
+            <div class="plan-top"><span class="tag tag-hot">Design + video</span><span class="dim mono">Priority queue</span></div>
+            <h3>Full Creative Partner</h3>
+            <div class="price"><span class="cur">$</span><span class="amt" data-monthly="2450" data-project="1390">2,450</span><span class="per" data-monthly="/ month" data-project="/ bundle">/ month</span></div>
+            <p class="plan-desc">Complete graphic design + high-retention video editing for scaling brands &amp; YouTube channels.</p>
+            <ul>
+              <li>4 long-form YouTube / commercial edits</li>
+              <li>12 short-form reels / TikToks</li>
+              <li>High-CTR thumbnails &amp; motion graphics</li>
+              <li>Colour grading &amp; mastered audio</li>
+            </ul>
+            <button class="btn btn-orange btn-block magnetic" type="button" data-plan="Full Creative Partner" data-service="Both (Full Plan)">Book a call — start now</button>
+          </article>
+
+          <article class="plan" data-reveal>
+            <div class="plan-top"><span class="tag">Video &amp; VFX</span><span class="dim mono">Dedicated channel</span></div>
+            <h3>Motion &amp; Ad Scale</h3>
+            <div class="price"><span class="cur">$</span><span class="amt" data-monthly="3600" data-project="2100">3,600</span><span class="per" data-monthly="/ month" data-project="/ campaign">/ month</span></div>
+            <p class="plan-desc">For agencies and funded brands needing daily ad creatives, 3D motion and campaign rollouts.</p>
+            <ul>
+              <li>2 active requests at a time</li>
+              <li>3D product renders &amp; VFX</li>
+              <li>Multi-ratio ads (9:16, 16:9, 1:1)</li>
+              <li>Weekly strategy &amp; retention calls</li>
+            </ul>
+            <button class="btn btn-ghost btn-block" type="button" data-plan="Motion & Ad Scale" data-service="Video Editing">Book a call for agency plan</button>
+          </article>
+        </div>
+
+        <!-- Configurator -->
+        <div class="config" data-reveal>
+          <div class="config-left">
+            <div class="config-step mono">Build your plan</div>
+            <h3>Make it yours.</h3>
+            <div class="config-bases" id="configBases">
+              <button type="button" class="cb" data-name="Brand & Visual Pack" data-price="1250">Brand &amp; Visual <b>$1,250</b></button>
+              <button type="button" class="cb is-active" data-name="Full Creative Partner" data-price="2450">Full Creative Partner <b>$2,450</b></button>
+              <button type="button" class="cb" data-name="Motion & Ad Scale" data-price="3600">Motion &amp; Ad Scale <b>$3,600</b></button>
+            </div>
+            <div class="addon">
+              <div><h4>Brand identity &amp; print stationery kit <span class="addon-price">+$109/mo</span></h4><p>Logo · colour palette · typography · business card, flyer &amp; folder templates</p></div>
+              <button type="button" class="switch" data-addon="brand" data-price="109" aria-pressed="false" aria-label="Add brand identity kit"><i></i></button>
+            </div>
+            <div class="addon">
+              <div><h4>High-CTR thumbnail &amp; social banner pack <span class="addon-price">+$79/mo</span></h4><p>A/B-tested YouTube thumbnails · vector social banners · 3D text effects</p></div>
+              <button type="button" class="switch" data-addon="thumb" data-price="79" aria-pressed="false" aria-label="Add thumbnail pack"><i></i></button>
+            </div>
+            <div class="addon">
+              <div><h4>Multilingual subtitles &amp; ad adapts <span class="addon-price">+$39/mo per language</span></h4><p>Your edits adapted into more languages — no separate timelines to manage.</p></div>
+              <div class="stepper"><button type="button" id="langMinus" aria-label="Remove a language">−</button><span id="langCount" class="mono">0</span><button type="button" id="langPlus" aria-label="Add a language">+</button></div>
+            </div>
+          </div>
+          <div class="config-right">
+            <div class="config-step mono">Summary</div>
+            <div class="sum-row"><span id="sumName">Full Creative Partner</span><b class="mono" id="sumBase">$2,450/mo</b></div>
+            <div class="sum-row dim"><span>Source files &amp; commercial licence</span><span class="accent">Included</span></div>
+            <div class="sum-row dim"><span>Direct line to the designer</span><span class="accent">Included</span></div>
+            <div id="sumAddons" class="sum-addons"></div>
+            <div class="promo">
+              <input id="promoInput" type="text" placeholder="Promo code" aria-label="Promo code" autocomplete="off" />
+              <button type="button" id="promoApply">Apply</button>
+            </div>
+            <p class="promo-msg mono" id="promoMsg">Try IMRANICK10 for 10% off your first month.</p>
+            <div class="sum-total">
+              <span>Estimated total</span>
+              <div><b id="sumTotal">$2,450</b><small>/month</small></div>
+            </div>
+            <button type="button" class="btn btn-orange btn-block btn-lg magnetic" id="configStart">Start my project →</button>
+            <p class="sum-note mono">✓ Delivered within 10 days · ✓ Cancel or pause anytime</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="experience" id="experience" data-scene="Scene 09 — Experience">
+      <div class="wrap exp-grid">
+        <div class="exp-left">
+          <div class="eyebrow" data-reveal><span class="mono">06</span> Experience</div>
+          <h2 class="sec-title" data-reveal>6+ years directing<br /><span class="accent">design</span> &amp; <span class="accent">post.</span></h2>
+          <p class="sec-desc" data-reveal>As the creative force behind IMRANICK, I’ve crafted brand identities, print stationery, social media kits and high-retention video edits for clients around the world.</p>
+
+          <div class="skills" data-reveal>
+            <div class="skill" style="--v:98"><div><span>Premiere Pro &amp; After Effects</span><b class="mono">98%</b></div><i></i></div>
+            <div class="skill" style="--v:96"><div><span>Photoshop &amp; Illustrator</span><b class="mono">96%</b></div><i></i></div>
+            <div class="skill" style="--v:92"><div><span>DaVinci Resolve (colour)</span><b class="mono">92%</b></div><i></i></div>
+            <div class="skill" style="--v:88"><div><span>Figma &amp; Blender 3D</span><b class="mono">88%</b></div><i></i></div>
+          </div>
+        </div>
+
+        <ol class="jobs">
+          <li class="job is-current" data-reveal>
+            <span class="job-year mono">2022 — Present</span>
+            <div>
+              <h3>Founder &amp; Lead Creative — IMRANICK Studio</h3>
+              <p>Leading graphic design and commercial video editing for brands and creators worldwide. Vector network logos, 3D editable text effects, corporate print kits and viral motion reels.</p>
+              <div class="job-tags"><span>Brand identity</span><span>Commercial video</span><span>Social media kits</span></div>
+            </div>
+          </li>
+          <li class="job" data-reveal>
+            <span class="job-year mono">2021 — 2023</span>
+            <div>
+              <h3>Senior Video Editor &amp; Motion Designer</h3>
+              <p>Directed post-production workflows for D2C product launch campaigns, cutting high-converting video ads and designing cohesive social ad kits.</p>
+              <div class="job-tags"><span>After Effects VFX</span><span>Colour grading</span><span>Sound design</span></div>
+            </div>
+          </li>
+          <li class="job" data-reveal>
+            <span class="job-year mono">2019 — 2021</span>
+            <div>
+              <h3>Visual &amp; Brand Graphic Designer</h3>
+              <p>Created brand guidelines, business flyers, presentation folders, bi-fold brochures and digital campaign assets for lifestyle and tech organisations.</p>
+              <div class="job-tags"><span>Logo systems</span><span>Print &amp; packaging</span><span>Typography</span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" data-scene="Scene 10 — FAQ">
+      <div class="wrap faq-grid">
+        <div>
+          <div class="eyebrow" data-reveal><span class="mono">07</span> FAQ</div>
+          <h2 class="sec-title" data-reveal>Your questions.<br /><span class="muted">My answers.</span></h2>
+        </div>
+        <div class="faq-list">
+          <details class="qa" open data-reveal>
+            <summary>How does the 10-day design &amp; video sprint work?<i></i></summary>
+            <div class="qa-body"><p>After you pick a plan or book a call, you fill a 5-minute brief and upload your footage or brand references. On Day 4 you review the first concept or rough cut, we refine together on Day 7, and on Day 10 you get the final 4K masters and source files.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary>Who owns the source files (PSD, AI, Figma, Premiere, After Effects)?<i></i></summary>
+            <div class="qa-body"><p>You own 100% of the work made for your brand. Every delivery includes clean, organised source files plus full commercial licensing.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary>Can I combine graphic design and video editing in one plan?<i></i></summary>
+            <div class="qa-body"><p>Yes — the Full Creative Partner plan combines brand design, high-CTR thumbnails, social banners and long/short-form video editing in one flat monthly price.</p></div>
+          </details>
+          <details class="qa" data-reveal>
+            <summary>Can I cancel or pause my monthly plan anytime?<i></i></summary>
+            <div class="qa-body"><p>Absolutely. No long-term lock-in. Quiet month? Pause or cancel, effective at the end of your current billing period.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / CTA ============ -->
+    <section class="contact" id="contact" data-scene="Scene 11 — Let's talk">
+      <div class="wrap">
+        <div class="eyebrow" data-reveal><span class="mono">08</span> This is only the end of the page</div>
+        <h2 class="big-cta" id="bigCta" aria-label="Let's make something meaningful.">
+          <span class="line"><span class="line-in" data-letters>Let’s make</span></span>
+          <span class="line"><span class="line-in" data-letters>something</span></span>
+          <span class="line"><span class="line-in"><em class="accent" data-letters>meaningful.</em></span></span>
+        </h2>
+
+        <div class="contact-row">
+          <button class="cta-circle magnetic" type="button" data-book>
+            <span>Book a<br />20-min call</span>
+          </button>
+          <form class="quick" id="quickForm" novalidate>
+            <h3>Prefer to message?</h3>
+            <p>Drop a quick note and I’ll reply within 24 hours.</p>
+            <input id="quickEmail" type="email" required placeholder="Your email *" />
+            <textarea id="quickMsg" rows="3" required placeholder="Tell me about your design or video project *"></textarea>
+            <button type="submit" class="btn btn-ghost btn-block">Send message →</button>
+            <p class="form-msg mono" id="quickStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="foot-giant" aria-hidden="true"><img src="assets/Imranick-Logo.png" alt="" /></div>
+      <div class="foot-row">
+        <span>© <span id="year">2026</span> IMRANICK — Graphic Designer &amp; Video Editor</span>
+        <nav class="foot-links" aria-label="Footer">
+          <a href="#work">Work</a><a href="#services">Services</a><a href="#craft">Craft</a><a href="#pricing">Pricing</a><a href="#experience">About</a>
+        </nav>
+        <span class="mono clock" id="clock">Studio time — 00:00:00 (GMT+6)</span>
+        <a href="#top" class="to-top magnetic" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" /></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BOOK A CALL MODAL ============ -->
+  <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookTitle" aria-hidden="true">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-panel modal-sm" data-lenis-prevent>
+      <button class="modal-x" type="button" data-close aria-label="Close">✕</button>
+      <div id="bookForm">
+        <span class="tag tag-hot mono">20-min discovery call · no commitment</span>
+        <h3 class="modal-title" id="bookTitle">Book a creative call</h3>
+        <p class="dim">Pick your focus and a slot. I’ll confirm with a calendar invite.</p>
+        <form id="bookCallForm" novalidate>
+          <label class="lbl">What do you need help with?</label>
+          <div class="seg seg-full" id="servicePick">
+            <button type="button" class="seg-btn is-active" data-pick="Graphic Design">Graphic design</button>
+            <button type="button" class="seg-btn" data-pick="Video Editing">Video editing</button>
+            <button type="button" class="seg-btn" data-pick="Both (Full Plan)">Both</button>
+          </div>
+          <div class="two">
+            <div><label class="lbl" for="bName">Your name</label><input id="bName" type="text" required placeholder="Alex Rivera" /></div>
+            <div><label class="lbl" for="bEmail">Email</label><input id="bEmail" type="email" required placeholder="alex@brand.io" /></div>
+          </div>
+          <div class="two">
+            <div><label class="lbl" for="bSlot">Preferred slot</label>
+              <select id="bSlot">
+                <option>Tomorrow — 11:00 AM</option>
+                <option>Tomorrow — 3:30 PM</option>
+                <option>Thursday — 1:00 PM</option>
+                <option>Friday — 4:00 PM</option>
+              </select>
+            </div>
+            <div><label class="lbl" for="bPlan">Package</label><input id="bPlan" type="text" value="Full Creative Partner" /></div>
+          </div>
+          <label class="lbl" for="bNotes">Project brief (optional)</label>
+          <textarea id="bNotes" rows="3" placeholder="Tell me about your brand or video goals…"></textarea>
+          <button type="submit" class="btn btn-orange btn-block btn-lg">Confirm call slot →</button>
+          <p class="form-msg mono" id="bookStatus" role="status"></p>
+        </form>
+      </div>
+      <div id="bookDone" class="book-done" hidden>
+        <div class="done-check"><svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" /></svg></div>
+        <h3 class="modal-title">Your call is locked in!</h3>
+        <p class="dim" id="bookSummary"></p>
+        <button type="button" class="btn btn-ghost" data-close>Back to the portfolio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROJECT MODAL ============ -->
+  <div class="modal" id="projModal" role="dialog" aria-modal="true" aria-labelledby="projTitle" aria-hidden="true">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-panel modal-lg" data-lenis-prevent>
+      <button class="modal-x" type="button" data-close aria-label="Close">✕</button>
+      <div class="proj-media" id="projMedia"></div>
+      <div class="proj-thumbs" id="projThumbs"></div>
+      <div class="proj-info">
+        <div>
+          <span class="tag tag-hot mono" id="projCat"></span>
+          <h3 class="modal-title" id="projTitle"></h3>
+          <p class="dim" id="projSummary"></p>
+          <div class="job-tags" id="projTags"></div>
+        </div>
+        <dl class="proj-meta" id="projMeta"></dl>
+      </div>
+      <div class="proj-foot">
+        <button type="button" class="btn btn-ghost" id="projPrev">← Prev</button>
+        <button type="button" class="btn btn-orange" id="projBook">Book a similar project →</button>
+        <button type="button" class="btn btn-ghost" id="projNext">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" async onload="window.__lenisReady && window.__lenisReady()"></script>
+  <script src="works.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
